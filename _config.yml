@@ -25,9 +25,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 author: Max Graf
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: maxgraf96
-instagram_username: _maxgraf
-spotify_username: asdf
+github: maxgraf96
+instagram: _maxgraf
+spotify: asdf
+facebook: maxgraf1996
 
 # Build settings
 theme: minima
@@ -37,6 +38,7 @@ plugins:
 header_pages:
   - _pages/music.md
   - _pages/research.md
+  - _pages/code.md
   - _pages/about.md
 
 include:

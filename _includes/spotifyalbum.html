@@ -1,7 +1,7 @@
 <div class="embed-spotify">
     <iframe src="https://open.spotify.com/embed/album/{{ include.id }}"
             width="300"
-            height="380"
+            height="{% if include.height %}{{include.height}}{% else %}380{% endif %}"
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"></iframe>

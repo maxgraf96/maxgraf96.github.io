@@ -1,0 +1,9 @@
+.social-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-footer > div {
+  margin-right: 12px;
+}
