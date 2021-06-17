@@ -4,7 +4,11 @@ layout: default
 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% if page.title == "about" %}
+      <h1 class="post-title">hello</h1>
+    {% else %}
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% endif %}
   </header>
 
   <div class="post-content">
@@ -22,21 +26,21 @@ layout: default
       {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
       {%- endif -%}
-      <ul class="post-list">
+      <ul class="post-list" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {%- for post in posts -%}
         {%- if post.tags[0] == "code" -%}
           <li>
             <span class="post-meta">{{ post.date | date: date_format }}</span>
             <h3>
-              <a class="post-link" style="text-decoration: none;" href="{{ post.url | relative_url }}">
-                <p>{{ post.title | escape }}</p>
+              <a class="post-link" style="text-decoration: none; color: black;" href="{{ post.url | relative_url }}">
+                <p style="max-width: 500px;">{{ post.title | escape }}</p>
                 <div>
-                  <img src="{{post.image}}" style="max-width: none; width: 500px;"/>
+                  <img src="{{post.image}}" class="post-image" style="max-width: none; width: 500px;"/>
                 </div>
               </a>
             </h3>
-            <p>{{ post.shortdescription }}</p>
+            <p style="max-width: 500px;">{{ post.shortdescription }}</p>
           </li>
         {%- endif -%}
         {%- endfor -%}

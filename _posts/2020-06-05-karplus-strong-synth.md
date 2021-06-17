@@ -17,7 +17,7 @@ timbral characteristics of the synthesised sound.
 We evaluate and discuss the sonic qualities of the results achieved through variation of the source sample, 
 window position and length.
 
-![image](/assets/images/karplus-strong-synth.png)
+<div>{%- include postscreenshot.html path="/assets/images/karplus-strong-synth.png" -%}</div>
 
 <a href="https://github.com/maxgraf96/DAFX_Assignment_2/blob/master/Report.pdf" target="_blank">Report (PDF)</a> •
 <a href="https://github.com/maxgraf96/DAFX_Assignment_2" target="_blank">Code</a>

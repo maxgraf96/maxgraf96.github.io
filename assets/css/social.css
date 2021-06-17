@@ -7,3 +7,16 @@
 .social-footer > div {
   margin-right: 12px;
 }
+
+.post-image {
+  -webkit-filter: brightness(100%);
+}
+
+.post-image:hover {
+  -webkit-filter: brightness(90%);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 0.3s ease;
+}

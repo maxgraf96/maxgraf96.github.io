@@ -1,7 +1,8 @@
 ---
 layout: page
-title: about
+title: "about"
 permalink: /about/
+redirect_from: /
 ---
 <div style="display: flex; flex-direction: row">
     <div style="margin-right: 24px;">
