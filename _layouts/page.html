@@ -11,4 +11,111 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.title == "code" %}
+    {% if site.paginate %}
+      {% assign posts = paginator.posts %}
+    {% else %}
+      {% assign posts = site.posts %}
+    {% endif %}
+
+    {%- if posts.size > 0 -%}
+      {%- if page.list_title -%}
+      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+      {%- endif -%}
+      <ul class="post-list">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- for post in posts -%}
+        {%- if post.tags[0] == "code" -%}
+          <li>
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <h3>
+              <a class="post-link" style="text-decoration: none;" href="{{ post.url | relative_url }}">
+                <p>{{ post.title | escape }}</p>
+                <div>
+                  <img src="{{post.image}}" style="max-width: none; width: 500px;"/>
+                </div>
+              </a>
+            </h3>
+            <p>{{ post.shortdescription }}</p>
+          </li>
+        {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      {% if site.paginate %}
+      <div class="pager">
+        <ul class="pagination">
+          {%- if paginator.previous_page %}
+          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+          {%- else %}
+          <li><div class="pager-edge">•</div></li>
+          {%- endif %}
+          <li><div class="current-page">{{ paginator.page }}</div></li>
+          {%- if paginator.next_page %}
+          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+          {%- else %}
+          <li><div class="pager-edge">•</div></li>
+          {%- endif %}
+        </ul>
+      </div>
+      {%- endif %}
+
+    {%- endif -%}
+  {%- endif -%}
+
+  <!-- Site-dependent Styling -->
+  {% if page.title == "music" %}
+    <style>
+      main {
+        animation: colorchange 90s ease infinite;
+        -webkit-animation: colorchange 90s ease infinite; /*Safari and Chrome*/
+        -moz-animtaion: colorchange 90s ease infinite; /*Firefox*/
+        -ms-animation: colorchange 90s ease infinite; /*Internet Explorer*/
+      }
+
+      @keyframes colorchange {
+        0% {
+          background: rgba(255, 255, 255, 0.35);
+        }
+        20% {
+          background: rgba(213, 220, 252, 0.8);
+        }
+        40% {
+          background: rgba(211, 185, 197, 0.35);
+        }
+        60% {
+          background: rgba(254, 212, 188, 0.35);
+        }
+        80% {
+          background: rgba(186, 252, 244, 0.35);
+        }
+        100% {
+          background: rgba(239, 191, 200, 0.35);
+        }
+      }
+
+      /*Safari and Chrome*/
+      @-webkit-keyframes colorchange {
+        0% {
+          background: rgba(255, 255, 255, 0.35);
+        }
+        20% {
+          background: rgba(213, 220, 252, 0.8);
+        }
+        40% {
+          background: rgba(211, 185, 197, 0.35);
+        }
+        60% {
+          background: rgba(254, 212, 188, 0.35);
+        }
+        80% {
+          background: rgba(186, 252, 244, 0.35);
+        }
+        100% {
+          background: rgba(239, 191, 200, 0.35);
+        }
+      }
+    </style>
+  {%- endif -%}
+
 </article>

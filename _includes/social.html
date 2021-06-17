@@ -1,7 +1,7 @@
 {%- assign social = site -%}
 
 <div class="social-footer">
-  <div><a rel="me" style="display: flex; margin-top: -1px;" href="https://open.spotify.com/artist/4P18zJpH8WSmt5tWlACK4s?si=xr_Qfh4ER3mICw8eHascLQ&dl_branch=1" title="Max Graf @ Spotify" target="_blank"><img src="/assets/images/spotify.svg" style="height: 24px" alt="Spotify logo"></a></div>
+  <div><a rel="me" style="display: flex; margin-top: -1px;" href="https://open.spotify.com/artist/4P18zJpH8WSmt5tWlACK4s?si=xr_Qfh4ER3mICw8eHascLQ&dl_branch=1" title="Max Graf @ Spotify" target="_blank"><img src="/assets/images/spotify.svg" style="height: 24.5px" alt="Spotify logo"></a></div>
   {%- if social.github -%}<div><a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}" target="_blank"><svg class="svg-icon grey"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg></a></div>{%- endif -%}
   {%- if social.stackoverflow -%}<div><a rel="me" href="https://stackoverflow.com/users/{{ social.stackoverflow | cgi_escape | escape }}" title="{{ social.stackoverflow | escape }}" target="_blank"><svg class="svg-icon grey"><use xlink:href="{{ '/assets/minima-social-icons.svg#stackoverflow' | relative_url }}"></use></svg></a></div>{%- endif -%}
   {%- if social.instagram -%}<div><a rel="me" href="https://www.instagram.com/{{ social.instagram | cgi_escape | escape }}" title="{{ social.instagram | escape }}" target="_blank"><svg class="svg-icon grey"><use xlink:href="{{ '/assets/minima-social-icons.svg#instagram' | relative_url }}"></use></svg></a></div>{%- endif -%}
