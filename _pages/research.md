@@ -12,7 +12,8 @@ pianist.
 **Mixed Reality Musical Interface: Exploring Ergonomics and Adaptive Hand Pose Recognition for Gestural Control**\
 Max Graf and Mathieu Barthet\
 21st International Conference on New Interfaces for Musical Expression. June 2022\
-<a href="https://nime.pubpub.org/pub/g1ja2o6o/draft?access=56fw4it9" target="_blank">Paper</a>
+Paper link coming soon
+<!-- <a href="" target="_blank">Paper</a>-->
 <!-- • <a href="https://github.com/maxgraf96/xrmi-framework" target="_blank">Code</a> -->
 
 ## 2021
