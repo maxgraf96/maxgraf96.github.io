@@ -3,16 +3,19 @@ layout: page
 title: research
 permalink: /research/
 ---
-My current research as a PhD student in AI & Music is located at the 
-intersection of symbolic music prediction systems, mixed reality technology and
-human-computer interaction. 
-
-I am exploring the use of transformer-based artificial neural networks for conditional generation of
-<a href="https://en.wikipedia.org/wiki/MIDI" target="_blank">MIDI</a> data. These models are integrated into digital musical instruments
-in a mixed reality environment. My goals are to identify the utility of these models for musical co-creation
-between people and machines.
+My research is located at the intersection of artificial intelligence, mixed reality technology and human-computer interaction.
+I currently work on the collaborative design of a new interface for musical expression in mixed reality with a jazz 
+pianist.
 
 # Publications
+## 2022
+**Mixed Reality Musical Interface: Exploring Ergonomics and Adaptive Hand Pose Recognition for Gestural Control**\
+Max Graf and Mathieu Barthet\
+Proceedings of the 21st international conference on New Interfaces for Musical Expression. June 2022\
+<a href="https://nime.pubpub.org/pub/g1ja2o6o/draft?access=56fw4it9" target="_blank">Paper</a>
+<!-- • <a href="https://github.com/maxgraf96/xrmi-framework" target="_blank">Code</a> -->
+
+## 2021
 **An Audio-Driven System for Real-Time Music Visualisation**\
 Max Graf, Harold C. Opara and Mathieu Barthet\
 150th Audio Engineering Society Convention. May 2021\
