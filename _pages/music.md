@@ -7,6 +7,9 @@ permalink: /music/
 All my music in reverse chronological order.
 
 ## As <a href="https://open.spotify.com/artist/4P18zJpH8WSmt5tWlACK4s?si=AMeBIXK3QaWnfDuT_fb2Zg&dl_branch=1" target="_blank">Max Graf</a>
+### fun again / away {% include music_year_span.html year='2022' %}
+{% include spotifyalbum.html id='5rIIPbVeXxGI3L0Iu6Kzwc' height='160' %}
+
 ### l2 ft. Nadia - <a href="https://open.spotify.com/artist/2z6e36ZPBEJg3JW32WFqGX?si=4dx9cEH0Sc-eefhhv7qrUg&dl_branch=1" target="_blank">Major Miles</a> Remix {% include music_year_span.html year='2020' %}
 {% include spotifyalbum.html id='2HB0RzDaEkp5AupWHIbsK9' height='160' %}
 
