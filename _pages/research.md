@@ -4,10 +4,19 @@ title: research
 permalink: /research/
 ---
 My research is located at the intersection of artificial intelligence, mixed reality technology and human-computer interaction.
-I currently work on the collaborative design of a new interface for musical expression in mixed reality with a jazz 
+In the past I have worked on the collaborative design of a novel mixed reality musical instrument with a jazz 
 pianist.
+Currently, I am working on improving hand-tracking technology for mixed reality applications using surface 
+electromyography devices.
 
 # Publications
+## 2023
+**Combining Vision and EMG-Based Hand Tracking for Extended Reality Musical Instruments**\
+Max Graf and Mathieu Barthet\
+16th International Symposium on Computer Music Multidisciplinary Research. November 2023\
+<a href="" target="_blank">Paper (preprint 
+coming soon)</a>
+
 ## 2022
 **Mixed Reality Musical Interface: Exploring Ergonomics and Adaptive Hand Pose Recognition for Gestural Control**\
 Max Graf and Mathieu Barthet\
