@@ -1,12 +1,9 @@
 ---
 layout: page
-title: research
+title: Audio Maps Beta
 permalink: /audiomapsdemo/
 ---
-
-# Audio Maps Beta
-# Thanks for trying it out! ❤️
-
+## Thanks for trying it out! ❤️
 ## Idea
 The core of the app is a PyTorch model that was trained to reconstruct drum samples. The latent space of this model is the basis for the map you see when you've loaded a folder into the app. I aimed for it to be a gradual, flowing representation of the timbral characteristics of samples. You will see that rather than hard boundaries, the clusters often overlap, as e.g. some claps, snares and snaps might sound very similar.
 The basic idea is to make finding samples easier by visually placing them on a map based on their sound. Move the mouse over loaded samples to play them and find the ones you like!
