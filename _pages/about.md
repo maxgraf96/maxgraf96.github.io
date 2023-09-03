@@ -6,7 +6,7 @@ redirect_from: /
 ---
 <div style="display: flex; flex-direction: row">
     <div style="margin-right: 24px;">
-        <img src="/assets/images/profile.jpg" style="max-width: none; width: 300px;" />
+        <img src="/assets/images/IMG_6045_cop.jpg" style="max-width: none; width: 300px;" />
     </div>
     <div>
         I am a PhD researcher in AI & Music at the Centre for Digital Music at Queen Mary University of London (QMUL).
