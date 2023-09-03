@@ -5,7 +5,6 @@ permalink: /audiomapsdemo/
 ---
 
 # Audio Maps Beta
-
 # Thanks for trying it out! ❤️
 
 ## Idea
@@ -20,7 +19,7 @@ Installer does everything. Find app in start menu after install.
 ### macOS
 Open `Audio Maps.dmg` file and drag-and-drop the app onto your Desktop or into your `Applications` folder or anywhere else.
 
-### How to
+## How to
 1. Drag-and-drop a folder into the app to add it to the database.
 2. Navigate the "map" like on Google Maps.
 3. Click a sample to automatically copy it to your clipboard -> just paste it into your DAW.
@@ -29,7 +28,7 @@ Open `Audio Maps.dmg` file and drag-and-drop the app onto your Desktop or into y
 5. Once you've loaded a folder and your on the map, you can drag-and-drop any audio sample from your computer into the app window to place that sample on the map -> useful for finding similar samples for ones you like within a big collection of sounds.
 6. The top right corner of the app window has a little help button that explains everything in more detail.
 
-### Limitations
+## Limitations
 - **!! The app currently needs an internet connection to run !!**
 - When selecting a folder to add, you can only pick one folder at a time (it will load all of its sub-folders) -> can't `Shift + Select` to add multiple at the same time.
 - Sometimes when opening the app for the very first time after installing it, the UI is half-broken -> just restart it and it should be fine.
