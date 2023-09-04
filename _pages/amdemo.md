@@ -10,7 +10,7 @@ The basic idea is to make finding samples easier by visually placing them on a m
 
 ## Installation
 ### Download
-Download from <a href="https://drive.google.com/drive/folders/1yhHwbDnEY_FvW0vb4wxILDkpjcS6h-Ld?usp=sharing" target="_blank">Google Drive</a>.
+Download for <a href="https://drive.google.com/drive/folders/1_Mk0hK2PYFocGQ0jMwiUK32-1tjI0Hwf?usp=drive_link" target="_blank">macOS</a> or <a href="https://drive.google.com/drive/folders/1ASTbrzi9LxcvFcDSIiIZAWYQWtoFasJv?usp=drive_link" target="_blank">Windows</a>.
 ### Windows
 Installer does everything. Find app in start menu after install.
 ### macOS
