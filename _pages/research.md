@@ -19,7 +19,7 @@ Max Graf and Mathieu Barthet\
 **Reducing Sensing Errors in a Mixed Reality Musical Instrument**\
 Max Graf and Mathieu Barthet\
 29th ACM Symposium on Virtual Reality Software and Technology (VRST). October 2023\
-<a href="" target="_blank">Paper (preprint coming soon)</a>
+<a href="https://dl.acm.org/doi/10.1145/3611659.3617210" target="_blank">Paper</a>
 
 ### 2022
 **Mixed Reality Musical Interface: Exploring Ergonomics and Adaptive Hand Pose Recognition for Gestural Control**\
