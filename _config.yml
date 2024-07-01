@@ -4,6 +4,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# test
+
 title: Max Graf
 email: max.graf@qmul.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
