@@ -40,3 +40,4 @@ Max Graf, Harold C. Opara and Mathieu Barthet\
 150th Audio Engineering Society Convention (AES). May 2021\
 <a href="https://www.aes.org/e-lib/browse.cfm?elib=21091" target="_blank">Paper</a> •
 <a href="https://github.com/maxgraf96/music-vis-backend" target="_blank">Code</a>
+
