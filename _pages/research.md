@@ -10,6 +10,12 @@ Currently, I am working on improving hand-tracking technology for mixed reality 
 electromyography devices.
 
 ## Publications
+### 2024
+**When XR Meets AI: Integrating Interactive Machine Learning with an XR Musical Instrument**
+Max Graf and Mathieu Barthet\
+1st International Symposium on AES International Symposium on AI and the Musician. June 2024\
+<a href="https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/97727/Graf%20When%20XR%20Meets%202024%20Accepted.pdf?sequence=2" target="_blank">Paper</a>
+
 ### 2023
 **Combining Vision and EMG-Based Hand Tracking for Extended Reality Musical Instruments**\
 Max Graf and Mathieu Barthet\
