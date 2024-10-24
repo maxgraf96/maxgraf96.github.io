@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-.social-footer > div {
+.social-footer>div {
   margin-right: 12px;
 }
 
@@ -19,4 +19,15 @@
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 0.3s ease;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .mainContainer {
+    flex-direction: row;
+  }
 }

@@ -4,10 +4,11 @@ title: "about"
 permalink: /about/
 redirect_from: /
 ---
-<div style="display: flex; flex-direction: row">
+<div class="mainContainer">
     <div style="margin-right: 24px;">
         <img src="/assets/images/IMG_6045_cop.jpg" style="max-width: none; width: 300px;" />
     </div>
+    <br />
     <div>
         I am a PhD researcher in AI & Music at the Centre for Digital Music at Queen Mary University of London (QMUL).
         My research, supervised by Mathieu Barthet and Andrew McPherson, is located at the intersection of 
