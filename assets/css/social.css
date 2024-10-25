@@ -26,9 +26,28 @@
   flex-direction: column;
 }
 
+.newsContainer {
+    width: 70%;
+}
+
+.newsContainer li {
+    /* padding-bottom: 12px; */
+}
+
+.newsContainer div {
+    text-align: justify; 
+    justify-text: auto;
+}
+
 @media (min-width: 640px) {
   .mainContainer {
     flex-direction: row;
+  }
+}
+
+@media (max-width: 640px) {
+  .newsContainer {
+    width: 100%;
   }
 }
 
