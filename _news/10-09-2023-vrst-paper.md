@@ -1,5 +1,5 @@
 ---
-title: "VRST 2024"
+title: "VRST 2023"
 date: 2023-09-10
 ---
 
