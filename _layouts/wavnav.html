@@ -12,192 +12,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
   
-  <!-- Fonts - Space Grotesk for more character -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Main CSS with Tailwind -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      min-height: 100vh;
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    
-    /* Noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      z-index: 9999;
-    }
-    
-    /* WavNav Header - solid, no glassmorphism */
-    .wavnav-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 64px;
-      background: #0f0f0f;
-      border-bottom: 1px solid #1a1a1a;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-    }
-    
-    .wavnav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: white;
-    }
-    
-    .wavnav-logo img {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-    }
-    
-    .wavnav-logo span {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      text-transform: uppercase;
-    }
-    
-    .wavnav-nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .wavnav-nav a {
-      color: #888;
-      text-decoration: none;
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.15s ease;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-    
-    .wavnav-nav a:hover {
-      color: #e85d04;
-    }
-    
-    .wavnav-nav a.active {
-      color: #e85d04;
-    }
-    
-    .wavnav-cta {
-      background: #e85d04;
-      color: white;
-      padding: 8px 20px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: all 0.15s ease;
-      margin-left: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .wavnav-cta:hover {
-      background: #f48c06;
-      color: white;
-    }
-    
-    /* Main Content - solid dark, no gradient */
-    .wavnav-main {
-      min-height: 100vh;
-      padding-top: 64px;
-      background: #0a0a0a;
-    }
-    
-    /* Footer - solid, minimal */
-    .wavnav-footer {
-      background: #0f0f0f;
-      border-top: 1px solid #1a1a1a;
-      padding: 40px 32px;
-      text-align: left;
-    }
-    
-    .wavnav-footer a {
-      color: #666;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.15s;
-    }
-    
-    .wavnav-footer a:hover {
-      color: #e85d04;
-    }
-    
-    /* Mobile Menu */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 8px;
-    }
-    
-    @media (max-width: 768px) {
-      .wavnav-header {
-        padding: 0 16px;
-      }
-      
-      .wavnav-nav {
-        display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: #0f0f0f;
-        flex-direction: column;
-        padding: 16px;
-        border-bottom: 1px solid #1a1a1a;
-      }
-      
-      .wavnav-nav.active {
-        display: flex;
-      }
-      
-      .wavnav-nav a {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-      }
-      
-      .wavnav-cta {
-        margin: 8px 0 0 0;
-        width: 100%;
-        text-align: center;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
+    /* Minimal custom styles for things Tailwind can't do easily */
+    .glass-header {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
   </style>
   
@@ -210,32 +33,34 @@
     </style>
   {% endif %}
 </head>
-<body>
-  <!-- Custom WavNav Header -->
-  <header class="wavnav-header">
-    <a href="/wavnav/" class="wavnav-logo">
-      <img src="/assets/images/wavnav-icon.png" alt="WavNav">
-      <span>WavNav</span>
-    </a>
-    
-    <button class="mobile-menu-btn" onclick="toggleMenu()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
-    
-    <nav class="wavnav-nav" id="wavnavNav">
-      <a href="/wavnav/" {% if page.url == '/wavnav/' or page.url == '/wavnav/index.html' %}class="active"{% endif %}>Home</a>
-      <a href="/wavnav/features/" {% if page.url contains '/features/' %}class="active"{% endif %}>Features</a>
-      <a href="/wavnav/screenshots/" {% if page.url contains '/screenshots/' %}class="active"{% endif %}>Screenshots</a>
-      <a href="https://gumroad.com" class="wavnav-cta" target="_blank">Get WavNav</a>
-    </nav>
+<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
+  <!-- WavNav Header -->
+  <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
+    <div class="h-full flex items-center justify-between px-6 lg:px-8">
+      <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
+        <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
+        <span class="text-xl font-semibold tracking-tight">WavNav</span>
+      </a>
+      
+      <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      
+      <nav class="hidden lg:flex items-center gap-2" id="wavnavNav">
+        <a href="/wavnav/" class="{% if page.url == '/wavnav/' or page.url == '/wavnav/index.html' %}text-wavnav-mint bg-wavnav-mint/10{% else %}text-white/70 hover:text-white hover:bg-white/5{% endif %} px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Home</a>
+        <a href="/wavnav/features/" class="{% if page.url contains '/features/' %}text-wavnav-mint bg-wavnav-mint/10{% else %}text-white/70 hover:text-white hover:bg-white/5{% endif %} px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+        <a href="/wavnav/screenshots/" class="{% if page.url contains '/screenshots/' %}text-wavnav-mint bg-wavnav-mint/10{% else %}text-white/70 hover:text-white hover:bg-white/5{% endif %} px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Screenshots</a>
+        <a href="https://gumroad.com" class="ml-4 px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">Get WavNav</a>
+      </nav>
+    </div>
   </header>
   
   <!-- Main Content -->
-  <main class="wavnav-main">
+  <main class="min-h-screen pt-16 bg-gradient-to-br from-wavnav-dark via-[#0d1117] to-wavnav-dark">
     {% assign content_parts = content | split: '<style>' %}
     {{ content_parts[0] }}
     {% if content_parts.size > 1 %}
@@ -244,14 +69,25 @@
     {% endif %}
   </main>
   
-  <!-- Minimal Footer -->
-  <footer class="wavnav-footer">
-    <a href="/">← Back to maxgraf.space</a>
+  <!-- Footer -->
+  <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
+    <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back to maxgraf.space</a>
   </footer>
   
   <script>
     function toggleMenu() {
-      document.getElementById('wavnavNav').classList.toggle('active');
+      const nav = document.getElementById('wavnavNav');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('right-0');
+      nav.classList.toggle('bg-wavnav-darker/98');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('border-b');
+      nav.classList.toggle('border-white/5');
     }
   </script>
 </body>

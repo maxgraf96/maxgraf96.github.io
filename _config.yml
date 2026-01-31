@@ -49,6 +49,15 @@ include:
 #
 exclude:
   - .gitignore
+  - node_modules
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - tailwind.config.js
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - src
 #  - Gemfile
 #  - Gemfile.lock
 #   - .sass-cache/
