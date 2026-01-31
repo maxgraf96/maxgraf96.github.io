@@ -1,165 +1,198 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <title>Screenshots | WavNav</title>
-  
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
-  
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Main CSS with Tailwind -->
-  <link rel="stylesheet" href="/assets/css/main.css">
-  
-  <style>
-    /* Minimal custom styles for things Tailwind can't do easily */
-    .glass-header {
-      background: rgba(10, 10, 10, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Screenshots | WavNav</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS with Tailwind -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <style>
+        /* Minimal custom styles for things Tailwind can't do easily */
+        .glass-header {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Space-themed background container */
+        .space-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 50%, #0a0a0f 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .space-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle, rgba(34, 194, 143, 0.4) 1px, transparent 2px),
+                radial-gradient(circle, rgba(59, 130, 246, 0.35) 1px, transparent 2px),
+                radial-gradient(circle, rgba(168, 85, 247, 0.3) 1px, transparent 2px),
+                radial-gradient(circle, rgba(236, 72, 153, 0.25) 1px, transparent 2px),
+                radial-gradient(circle, rgba(34, 194, 143, 0.3) 1px, transparent 2px),
+                radial-gradient(circle, rgba(59, 130, 246, 0.25) 1px, transparent 2px);
+            background-size:
+                120px 120px,
+                180px 180px,
+                220px 220px,
+                280px 280px,
+                150px 150px,
+                200px 200px;
+            background-position:
+                0 0,
+                40px 60px,
+                120px 30px,
+                80px 120px,
+                200px 100px,
+                30px 180px;
+        }
+
+        .space-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Max/MSP style dot grid - dots at line intersections */
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 2px);
+            background-size: 80px 80px;
+            background-position: 0 0;
+            opacity: 0.9;
+        }
+
+        /* Floating star particles */
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        .star-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+        }
+
+        .star.mint {
+            background: rgba(34, 194, 143, 0.9);
+            box-shadow: 0 0 6px rgba(34, 194, 143, 0.6);
+        }
+
+        .star.blue {
+            background: rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+        }
+
+        .star.purple {
+            background: rgba(168, 85, 247, 0.8);
+            box-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
+        }
+
+        .star.pink {
+            background: rgba(236, 72, 153, 0.7);
+            box-shadow: 0 0 6px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Ensure content stays above background */
+        .space-bg>* {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+
     
-    /* Space-themed background container */
-    .space-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 50%, #0a0a0f 100%);
-      pointer-events: none;
-      z-index: 0;
-    }
     
-    .space-background::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        radial-gradient(circle, rgba(34, 194, 143, 0.4) 1px, transparent 2px),
-        radial-gradient(circle, rgba(59, 130, 246, 0.35) 1px, transparent 2px),
-        radial-gradient(circle, rgba(168, 85, 247, 0.3) 1px, transparent 2px),
-        radial-gradient(circle, rgba(236, 72, 153, 0.25) 1px, transparent 2px),
-        radial-gradient(circle, rgba(34, 194, 143, 0.3) 1px, transparent 2px),
-        radial-gradient(circle, rgba(59, 130, 246, 0.25) 1px, transparent 2px);
-      background-size: 
-        120px 120px,
-        180px 180px,
-        220px 220px,
-        280px 280px,
-        150px 150px,
-        200px 200px;
-      background-position: 
-        0 0,
-        40px 60px,
-        120px 30px,
-        80px 120px,
-        200px 100px,
-        30px 180px;
-    }
+
     
-    .space-background::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-      background-size: 100px 100px;
-      opacity: 0.6;
-    }
     
-    /* Floating star particles */
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.2); }
-    }
-    
-    .star-field {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-    
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
-    }
-    
-    .star.mint { background: rgba(34, 194, 143, 0.9); box-shadow: 0 0 6px rgba(34, 194, 143, 0.6); }
-    .star.blue { background: rgba(59, 130, 246, 0.8); box-shadow: 0 0 6px rgba(59, 130, 246, 0.5); }
-    .star.purple { background: rgba(168, 85, 247, 0.8); box-shadow: 0 0 6px rgba(168, 85, 247, 0.5); }
-    .star.pink { background: rgba(236, 72, 153, 0.7); box-shadow: 0 0 6px rgba(236, 72, 153, 0.4); }
-    
-    /* Ensure content stays above background */
-    .space-bg > * {
-      position: relative;
-      z-index: 2;
-    }
-  </style>
-  
-  
-  
-  
 </head>
+
 <body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
-  <!-- WavNav Header -->
-  <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
-    <div class="h-full flex items-center justify-between px-6 lg:px-8">
-      <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
-        <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
-        <span class="text-xl font-semibold tracking-tight">WavNav</span>
-      </a>
-      
-      <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      
-      <nav class="hidden lg:flex items-center gap-2" id="wavnavNav">
-        <a href="/wavnav/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Home</a>
-        <a href="/wavnav/features/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
-        <a href="/wavnav/screenshots/" class="text-wavnav-mint bg-wavnav-mint/10 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Screenshots</a>
-        <a href="https://gumroad.com" class="ml-4 px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">Get WavNav</a>
-      </nav>
+    <!-- WavNav Header -->
+    <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
+        <div class="h-full flex items-center justify-between px-6 lg:px-8">
+            <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
+                <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
+                <span class="text-xl font-semibold tracking-tight">WavNav</span>
+            </a>
+
+            <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <nav class="hidden lg:flex items-center gap-2" id="wavnavNav">
+                <a href="/wavnav/"
+                    class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Home</a>
+                <a href="/wavnav/features/"
+                    class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+                <a href="/wavnav/screenshots/"
+                    class="text-wavnav-mint bg-wavnav-mint/10 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Screenshots</a>
+                <a href="https://gumroad.com"
+                    class="ml-4 px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 text-white"
+                    style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">Get
+                    WavNav</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Space background container (scrolls with page) -->
+    <div class="space-background">
+        <div class="star-field" id="starField"></div>
     </div>
-  </header>
-  
-  <!-- Space background container (scrolls with page) -->
-  <div class="space-background">
-    <div class="star-field" id="starField"></div>
-  </div>
-  
-  <!-- Main Content -->
-  <main class="min-h-screen pt-16 relative z-10">
-    
-    <!-- Hero -->
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-16 relative z-10">
+        <!-- Hero -->
 <div class="text-center px-4 pt-14 pb-10 mb-6">
   <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Screenshots</h1>
   <p class="text-lg lg:text-xl text-white/60">What WavNav looks like</p>
@@ -248,77 +281,76 @@
   </a>
 </div>
 
-    
-  </main>
-  
-  <!-- Footer -->
-  <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
-    <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back to maxgraf.space</a>
-  </footer>
-  
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('wavnavNav');
-      nav.classList.toggle('hidden');
-      nav.classList.toggle('flex');
-      nav.classList.toggle('flex-col');
-      nav.classList.toggle('absolute');
-      nav.classList.toggle('top-16');
-      nav.classList.toggle('left-0');
-      nav.classList.toggle('right-0');
-      nav.classList.toggle('bg-wavnav-darker/98');
-      nav.classList.toggle('p-4');
-      nav.classList.toggle('border-b');
-      nav.classList.toggle('border-white/5');
-    }
-    
-    // Generate star field with parallax
-    (function() {
-      const starField = document.getElementById('starField');
-      const spaceBg = document.querySelector('.space-background');
-      if (!starField || !spaceBg) return;
-      
-      const colors = ['mint', 'blue', 'purple', 'pink'];
-      const starCount = Math.min(60, Math.floor(window.innerWidth / 25));
-      
-      // Generate stars across full page
-      function generateStars() {
-        const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-        const starsToGenerate = Math.floor(starCount * (docHeight / window.innerHeight));
-        
-        for (let i = 0; i < starsToGenerate; i++) {
-          const star = document.createElement('div');
-          const color = colors[Math.floor(Math.random() * colors.length)];
-          star.className = `star ${color}`;
-          star.style.left = `${Math.random() * 100}%`;
-          star.style.top = `${Math.random() * docHeight}px`;
-          star.style.animationDelay = `${Math.random() * 5}s`;
-          star.style.setProperty('--twinkle-duration', `${3 + Math.random() * 4}s`);
-          const size = 1.5 + Math.random() * 1.5;
-          star.style.width = `${size}px`;
-          star.style.height = `${size}px`;
-          starField.appendChild(star);
-        }
-      }
-      
-      // Wait for DOM to be ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', generateStars);
-      } else {
-        generateStars();
-      }
-      
-      // Update background height on resize
-      function updateBackgroundHeight() {
-        const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-        spaceBg.style.height = `${docHeight}px`;
-      }
-      
-      updateBackgroundHeight();
-      window.addEventListener('resize', updateBackgroundHeight);
-      
+    </main>
 
-    })();
-  </script>
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
+        <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back
+            to maxgraf.space</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('wavnavNav');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-16');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('right-0');
+            nav.classList.toggle('bg-wavnav-darker/98');
+            nav.classList.toggle('p-4');
+            nav.classList.toggle('border-b');
+            nav.classList.toggle('border-white/5');
+        }
+
+        // Generate star field
+        (function () {
+            const starField = document.getElementById('starField');
+            const spaceBg = document.querySelector('.space-background');
+            if (!starField || !spaceBg) return;
+
+            const colors = ['mint', 'blue', 'purple', 'pink'];
+            const starCount = Math.min(60, Math.floor(window.innerWidth / 25));
+
+            // Generate stars across full page
+            function generateStars() {
+                const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                const starsToGenerate = Math.floor(starCount * (docHeight / window.innerHeight));
+
+                for (let i = 0; i < starsToGenerate; i++) {
+                    const star = document.createElement('div');
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    star.className = `star ${color}`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * docHeight}px`;
+                    star.style.animationDelay = `${Math.random() * 5}s`;
+                    star.style.setProperty('--twinkle-duration', `${3 + Math.random() * 4}s`);
+                    const size = 1.5 + Math.random() * 1.5;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    starField.appendChild(star);
+                }
+            }
+
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', generateStars);
+            } else {
+                generateStars();
+            }
+
+            // Update background height on resize
+            function updateBackgroundHeight() {
+                const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                spaceBg.style.height = `${docHeight}px`;
+            }
+
+            updateBackgroundHeight();
+            window.addEventListener('resize', updateBackgroundHeight);
+        })();
+    </script>
 </body>
+
 </html>
