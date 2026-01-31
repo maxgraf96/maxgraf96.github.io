@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Screenshots | WavNav</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  
+  <!-- Main CSS with Tailwind -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <style>
+    /* Minimal custom styles for things Tailwind can't do easily */
+    .glass-header {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+  
+  
+  
+  
+</head>
+<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
+  <!-- WavNav Header -->
+  <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
+    <div class="h-full flex items-center justify-between px-6 lg:px-8">
+      <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
+        <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
+        <span class="text-xl font-semibold tracking-tight">WavNav</span>
+      </a>
+      
+      <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      
+      <nav class="hidden lg:flex items-center gap-2" id="wavnavNav">
+        <a href="/wavnav/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Home</a>
+        <a href="/wavnav/features/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+        <a href="/wavnav/screenshots/" class="text-wavnav-mint bg-wavnav-mint/10 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Screenshots</a>
+        <a href="https://gumroad.com" class="ml-4 px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">Get WavNav</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="min-h-screen pt-16 bg-gradient-to-br from-wavnav-dark via-[#0d1117] to-wavnav-dark">
+    
+    <!-- Hero -->
+<div class="text-center px-4 pt-14 pb-10 mb-6">
+  <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Screenshots</h1>
+  <p class="text-lg lg:text-xl text-white/60">See WavNav in action</p>
+</div>
+
+<!-- Gallery Grid -->
+<div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-20">
+  <div class="space-y-12">
+    <!-- Main Interface -->
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-300 hover:border-wavnav-mint/30">
+      <img src="/assets/images/wavnav-main.png" alt="Main Interface" class="w-full" />
+      <div class="p-6 lg:p-8">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3 text-white/95">Main Interface</h3>
+        <p class="text-white/60 leading-relaxed">The stunning nebula visualization with your entire sample library mapped as interactive points. Pan, zoom, and explore your sounds spatially.</p>
+      </div>
+    </div>
+    
+    <!-- Folder Management -->
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-300 hover:border-wavnav-mint/30">
+      <img src="/assets/images/wavnav-folders.png" alt="Folder Management" class="w-full" />
+      <div class="p-6 lg:p-8">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3 text-white/95">Folder Management</h3>
+        <p class="text-white/60 leading-relaxed">Easily manage multiple sample libraries. Toggle folders on/off to control which collections appear in your map.</p>
+      </div>
+    </div>
+    
+    <!-- Scale Performance -->
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-300 hover:border-wavnav-mint/30">
+      <img src="/assets/images/wavnav-scale.png" alt="Large Scale Library" class="w-full" />
+      <div class="p-6 lg:p-8">
+        <h3 class="text-xl lg:text-2xl font-semibold mb-3 text-white/95">Scale Performance</h3>
+        <p class="text-white/60 leading-relaxed">WavNav handles massive libraries with ease—shown here with ~50,000 audio samples rendered smoothly at 60fps.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Interface Highlights -->
+<div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-20">
+  <h2 class="text-2xl lg:text-3xl font-semibold text-center mb-10 text-white/95">Interface Highlights</h2>
+  
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">🔍</div>
+      <h4 class="text-white/95 font-semibold mb-2">Smart Search Bar</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Centered search with text input, key filtering dropdown, and BPM range slider—all in one elegant control bar.</p>
+    </div>
+    
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">🎚️</div>
+      <h4 class="text-white/95 font-semibold mb-2">Audio Panel</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Full playback controls with waveform visualization. Preview sounds instantly without leaving the app.</p>
+    </div>
+    
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">📊</div>
+      <h4 class="text-white/95 font-semibold mb-2">Progress Tracking</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Real-time progress bars for scanning, embedding generation, and clustering operations.</p>
+    </div>
+    
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">⚙️</div>
+      <h4 class="text-white/95 font-semibold mb-2">Settings Panel</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Configure visualization parameters, audio settings, and application preferences.</p>
+    </div>
+    
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">🎨</div>
+      <h4 class="text-white/95 font-semibold mb-2">Visual Customization</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Adjust nebula colors, point sizes, glow intensity, and background themes.</p>
+    </div>
+    
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+      <div class="text-3xl mb-4">⌨️</div>
+      <h4 class="text-white/95 font-semibold mb-2">Keyboard Shortcuts</h4>
+      <p class="text-white/60 text-sm leading-relaxed">Power-user shortcuts for search, navigation, playback control, and quick actions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="text-center px-4 py-12">
+  <p class="text-white/60 mb-6 text-lg">Experience WavNav yourself</p>
+  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+    Get WavNav Now
+  </a>
+</div>
+
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
+    <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back to maxgraf.space</a>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('wavnavNav');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('right-0');
+      nav.classList.toggle('bg-wavnav-darker/98');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('border-b');
+      nav.classList.toggle('border-white/5');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Features | WavNav</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  
+  <!-- Main CSS with Tailwind -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <style>
+    /* Minimal custom styles for things Tailwind can't do easily */
+    .glass-header {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+  
+  
+  
+  
+</head>
+<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
+  <!-- WavNav Header -->
+  <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
+    <div class="h-full flex items-center justify-between px-6 lg:px-8">
+      <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
+        <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
+        <span class="text-xl font-semibold tracking-tight">WavNav</span>
+      </a>
+      
+      <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      
+      <nav class="hidden lg:flex items-center gap-2" id="wavnavNav">
+        <a href="/wavnav/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Home</a>
+        <a href="/wavnav/features/" class="text-wavnav-mint bg-wavnav-mint/10 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+        <a href="/wavnav/screenshots/" class="text-white/70 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200">Screenshots</a>
+        <a href="https://gumroad.com" class="ml-4 px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">Get WavNav</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="min-h-screen pt-16 bg-gradient-to-br from-wavnav-dark via-[#0d1117] to-wavnav-dark">
+    
+    <!-- Hero -->
+<div class="text-center px-4 pt-16 pb-10 mb-10">
+  <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Features</h1>
+  <p class="text-lg lg:text-xl text-white/60">Everything you need to navigate your sound library</p>
+</div>
+
+<!-- Feature 1: Visual Sound Map -->
+<div class="py-16 lg:py-20 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95">🌌 Visual Sound Map</h2>
+        <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
+          WavNav transforms your audio library into a stunning nebula visualization. 
+          Using advanced UMAP dimensionality reduction, similar sounds naturally cluster together, 
+          creating an intuitive spatial map of your entire collection.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            GPU-accelerated OpenGL/Metal rendering
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Smooth pan and zoom navigation
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Color-coded clustering by similarity
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Configurable nebula glow effects
+          </li>
+        </ul>
+      </div>
+      <div class="order-1 lg:order-2">
+        <img src="/assets/images/wavnav-main.png" alt="Visual Sound Map" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature 2: Semantic Search -->
+<div class="py-16 lg:py-20 bg-black/20 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div>
+        <img src="/assets/images/wavnav-main.png" alt="Semantic Search" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10" />
+      </div>
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95">🔍 Semantic Search</h2>
+        <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
+          Find sounds by describing them. Our CLAP-powered AI understands both text queries 
+          and audio references, delivering results that match what you're looking for—not just 
+          what your files are named.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Text-to-audio semantic matching
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Audio similarity search (drag-and-drop)
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Adjustable similarity thresholds
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Filename matching fallback
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature 3: Folder Management -->
+<div class="py-16 lg:py-20 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95">📁 Folder Management</h2>
+        <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
+          Organize multiple sample libraries with ease. Activate or deactivate folders on the fly, 
+          and WavNav will update the visualization instantly—no re-scanning required.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Multiple folder support
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Toggle folders on/off dynamically
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Persistent folder configuration
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Drag-and-drop folder addition
+          </li>
+        </ul>
+      </div>
+      <div class="order-1 lg:order-2">
+        <img src="/assets/images/wavnav-folders.png" alt="Folder Management" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature 4: Smart Filters -->
+<div class="py-16 lg:py-20 bg-black/20 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div>
+        <img src="/assets/images/wavnav-main.png" alt="Smart Filters" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10" />
+      </div>
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95">🎛️ Smart Filters</h2>
+        <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
+          Narrow down your search with intelligent filtering. Filter by musical key, BPM range, 
+          or combine multiple criteria to find exactly what you need.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            12-key musical key detection
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            BPM range slider (20-200+)
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Real-time filter updates
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Combined search + filter queries
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature 5: High Performance -->
+<div class="py-16 lg:py-20 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95">⚡ High Performance</h2>
+        <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
+          Built for professionals with massive libraries. WavNav handles 250,000+ samples 
+          with sub-30-second initial load times and instant cached startup.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            UMAP + DBSCAN clustering optimized for audio
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            SQLite caching with BLOB storage
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Async background processing
+          </li>
+          <li class="flex items-start text-white/60">
+            <span class="text-wavnav-mint font-bold mr-3">✓</span>
+            Responsive UI with progress tracking
+          </li>
+        </ul>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+            <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">&lt;30s</span>
+            <span class="text-white/70 text-sm">First load (250k samples)</span>
+          </div>
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+            <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">&lt;3s</span>
+            <span class="text-white/70 text-sm">Cached startup</span>
+          </div>
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+            <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">60fps</span>
+            <span class="text-white/70 text-sm">Smooth navigation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Additional Features Grid -->
+<div class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Additional Features</h2>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">🔊 Instant Preview</h4>
+        <p class="text-white/60 text-sm leading-relaxed">Hover over any sample to hear it instantly. No clicking required.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">📋 Copy Path</h4>
+        <p class="text-white/60 text-sm leading-relaxed">One-click copy file path to clipboard for quick DAW import.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">📂 Reveal in Finder</h4>
+        <p class="text-white/60 text-sm leading-relaxed">Open the containing folder directly from the app.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">🔎 Find Similar</h4>
+        <p class="text-white/60 text-sm leading-relaxed">Discover variations and alternatives with one click.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">💾 Auto-Save</h4>
+        <p class="text-white/60 text-sm leading-relaxed">Your configuration and cache persist between sessions.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+        <h4 class="text-white/95 font-semibold mb-3">🎨 Dark UI</h4>
+        <p class="text-white/60 text-sm leading-relaxed">Easy on the eyes during long studio sessions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="text-center px-4 py-16 mt-10">
+  <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-white/95">Ready to transform your workflow?</h2>
+  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+    Get WavNav
+  </a>
+</div>
+
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
+    <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back to maxgraf.space</a>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('wavnavNav');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('right-0');
+      nav.classList.toggle('bg-wavnav-darker/98');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('border-b');
+      nav.classList.toggle('border-white/5');
+    }
+  </script>
+</body>
+</html>

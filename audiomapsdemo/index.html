@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Audio Maps Beta | Max Graf</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Audio Maps Beta" />
+<meta name="author" content="Max Graf" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is my personal website." />
+<meta property="og:description" content="This is my personal website." />
+<link rel="canonical" href="https://maxgraf.space/audiomapsdemo/" />
+<meta property="og:url" content="https://maxgraf.space/audiomapsdemo/" />
+<meta property="og:site_name" content="Max Graf" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Audio Maps Beta" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Max Graf" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Max Graf"},"description":"This is my personal website.","headline":"Audio Maps Beta","url":"https://maxgraf.space/audiomapsdemo/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://maxgraf.space/feed.xml" title="Max Graf" /><!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L66G8EX5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-0L66G8EX5T');
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/social.css">
+
+  <!--  Favicon  -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Max Graf</a><nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+      </label>
+
+      <div class="trigger">
+          <a class="page-link" href="/music/">music</a>
+          <a class="page-link" href="/research/">research</a>
+          <a class="page-link" href="/code/">code</a>
+          <a class="page-link" href="/about/">about</a></div>
+    </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    
+      <h1 class="post-title">Audio Maps Beta</h1>
+    
+  </header>
+
+  <div class="post-content">
+    <p><img src="/assets/images/audiomapsscreen.png" alt="Audio Maps Screenshot" /></p>
+<h2 id="thanks-for-trying-it-out-️">Thanks for trying it out! ❤️</h2>
+<h2 id="idea">Idea</h2>
+<p>The core of the app is a PyTorch model that was trained to reconstruct drum samples. The latent space of this model is the basis for the map you see when you’ve loaded a folder into the app. I aimed for it to be a gradual, flowing representation of the timbral characteristics of samples. You will see that rather than hard boundaries, the clusters often overlap, as e.g. some claps, snares and snaps might sound very similar.
+The basic idea is to make finding samples easier by visually placing them on a map based on their sound. Move the mouse over loaded samples to play them and find the ones you like!</p>
+
+<h2 id="installation">Installation</h2>
+<h3 id="download">Download</h3>
+<p>Download for <a href="https://drive.google.com/drive/folders/1_Mk0hK2PYFocGQ0jMwiUK32-1tjI0Hwf?usp=drive_link" target="_blank">macOS</a> or <a href="https://drive.google.com/drive/folders/1ASTbrzi9LxcvFcDSIiIZAWYQWtoFasJv?usp=drive_link" target="_blank">Windows</a>.</p>
+<h3 id="windows">Windows</h3>
+<p>Installer does everything. Find app in start menu after install.</p>
+<h3 id="macos">macOS</h3>
+<p>Open <code class="language-plaintext highlighter-rouge">Audio Maps.dmg</code> file and drag-and-drop the app onto your Desktop or into your <code class="language-plaintext highlighter-rouge">Applications</code> folder or anywhere else.</p>
+
+<h2 id="how-to">How to</h2>
+<ol>
+  <li>Drag-and-drop a folder into the app to add it to the database.</li>
+  <li>Navigate the “map” like on Google Maps.</li>
+  <li>Click a sample to automatically copy it to your clipboard -&gt; just paste it into your DAW.
+    <ol>
+      <li>Clicking a sample also opens a little box with the sample name. Start dragging outwards from that box to drag-and-drop the current sample into any app (for DAWs that don’t accept <code class="language-plaintext highlighter-rouge">CTRL/CMD + V</code>ing of audio samples, looking at you FL Studio)</li>
+    </ol>
+  </li>
+  <li>Add more folders using the folder button at the top right of the app.</li>
+  <li>Once you’ve loaded a folder and your on the map, you can drag-and-drop any audio sample from your computer into the app window to place that sample on the map -&gt; useful for finding similar samples for ones you like within a big collection of sounds.</li>
+  <li>The top right corner of the app window has a little help button that explains everything in more detail.</li>
+</ol>
+
+<h2 id="limitations">Limitations</h2>
+<ul>
+  <li><strong>!! The app currently needs an internet connection to run !!</strong></li>
+  <li>When selecting a folder to add, you can only pick one folder at a time (it will load all of its sub-folders) -&gt; can’t <code class="language-plaintext highlighter-rouge">Shift + Select</code> to add multiple at the same time.</li>
+  <li>Sometimes when opening the app for the very first time after installing it, the UI is half-broken -&gt; just restart it and it should be fine.</li>
+  <li>Clustering for very large collections (&gt; 10k samples) is sometimes still trash.</li>
+  <li>Clustering for loops is very arbitrary, sometimes it gets it, sometimes not.</li>
+  <li>The search bar filters by means of file names at the moment -&gt; if you have a folder where the samples are called something like <code class="language-plaintext highlighter-rouge">1.wav, 2.wav, 3.wav</code> and it’s a kick, snare and hihat, the search won’t filter them correctly.</li>
+  <li>Only wav files are supported at the moment (sometimes mp3s work weirdly but don’t bet on it).</li>
+</ul>
+
+  </div>
+
+  <!-- Site-dependent Styling -->
+  </article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="social-links"><div class="social-footer">
+  <div><a rel="me" style="display: flex; margin-top: -4.5px;" href="https://open.spotify.com/artist/4P18zJpH8WSmt5tWlACK4s?si=xr_Qfh4ER3mICw8eHascLQ&dl_branch=1" title="Max Graf @ Spotify" target="_blank"><img src="/assets/images/spotify.svg" style="height: 23.5px" alt="Spotify logo"></a></div>
+  <div><a rel="me" style="display: flex; margin-top: -4.5px; margin-right: 1px;" href="https://scholar.google.com/citations?hl=en&user=Dq57Fx4AAAAJ" title="Max Graf @ Google Scholar" target="_blank"><img src="/assets/images/google-scholar.png" style="height: 16px; filter: brightness(3.2)" alt="Google Scholar logo"></a></div><div><a rel="me" href="https://github.com/maxgraf96" title="maxgraf96" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></div><div><a rel="me" href="https://www.instagram.com/_maxgraf" title="_maxgraf" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#instagram"></use></svg></a></div><div><a rel="me" href="https://www.youtube.com/channel/UC8B_BlQEDOehnXvGmYPjPDQ" title="UC8B_BlQEDOehnXvGmYPjPDQ" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#youtube"></use></svg></a></div><div><a rel="me" href="https://twitter.com/maxgraf__" title="maxgraf__" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></div><div><a rel="me" href="https://www.linkedin.com/in/max-graf-3265171a9" title="max-graf-3265171a9" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></div><div><a rel="me" href="https://www.facebook.com/maxgraf1996" title="maxgraf1996" target="_blank"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg></a></div></div>
+</div>
+  </div>
+
+</footer></body>
+
+</html>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://maxgraf.space/feed.xml" rel="self" type="application/atom+xml" /><link href="https://maxgraf.space/" rel="alternate" type="text/html" /><updated>2026-01-31T14:37:42+00:00</updated><id>https://maxgraf.space/feed.xml</id><title type="html">Max Graf</title><subtitle>This is my personal website.</subtitle><author><name>Max Graf</name></author><entry><title type="html">WavNav</title><link href="https://maxgraf.space/code/2026/01/31/wavnav.html" rel="alternate" type="text/html" title="WavNav" /><published>2026-01-31T11:30:00+00:00</published><updated>2026-01-31T11:30:00+00:00</updated><id>https://maxgraf.space/code/2026/01/31/wavnav</id><content type="html" xml:base="https://maxgraf.space/code/2026/01/31/wavnav.html"><![CDATA[<h1 id="wavnav--audio-sample-discovery-reimagined">WavNav — Audio Sample Discovery Reimagined</h1>
+
+<p><strong>WavNav</strong> is a professional audio sample discovery application that transforms how music producers and sound designers explore their sample libraries. Instead of scrolling through endless folder hierarchies, WavNav presents your samples as an <strong>interactive 2D map</strong> — similar samples cluster together, and you navigate visually.</p>
+
+<h2 id="what-it-does">What It Does</h2>
+
+<ul>
+  <li><strong>Visual Exploration</strong> — Your entire sample library mapped in 2D space; similar sounds appear close together</li>
+  <li><strong>AI-Powered Embeddings</strong> — Uses neural audio embeddings to understand sound similarity</li>
+  <li><strong>Real-Time Clustering</strong> — DBSCAN clustering groups samples into meaningful categories</li>
+  <li><strong>Interactive Navigation</strong> — Pan, zoom, and click to audition samples instantly</li>
+  <li><strong>Cross-Platform</strong> — Native macOS app (Apple Silicon optimized), with Windows coming soon</li>
+</ul>
+
+<h2 id="tech-stack">Tech Stack</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Technology</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core</strong></td>
+      <td>C++20, JUCE 8 framework</td>
+    </tr>
+    <tr>
+      <td><strong>Graphics</strong></td>
+      <td>OpenGL (FeaturePlane renderer)</td>
+    </tr>
+    <tr>
+      <td><strong>UI Layer</strong></td>
+      <td>JUCE WebView with HTML/JS/CSS overlay</td>
+    </tr>
+    <tr>
+      <td><strong>ML/Audio</strong></td>
+      <td>libtorch, custom embedding pipeline</td>
+    </tr>
+    <tr>
+      <td><strong>Search</strong></td>
+      <td>FAISS for similarity search</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status">Status</h2>
+
+<ul>
+  <li>✅ <strong>macOS (Apple Silicon)</strong> — Fully functional, 3 releases tagged</li>
+  <li>🔄 <strong>Embedding Pipeline</strong> — Migrating to LAION CLAP for on-device inference</li>
+  <li>📋 <strong>Windows</strong> — Planned</li>
+</ul>
+
+<div><div style="display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 36px;
+">
+    <img src="/assets/images/wavnav-screenshot.png" style="max-width: 60%; margin-bottom: 12px;" alt="Screenshot" />
+    <span style="color: gray;">Screenshot</span>
+</div></div>
+
+<p><a href="https://github.com/maxgraf96/audio-maps" target="_blank">View on GitHub</a> •
+<a href="mailto:max.graf@qmul.ac.uk">Request Beta Access</a></p>
+
+<hr />
+
+<p><em>WavNav represents my work at the intersection of audio signal processing, machine learning, and professional music production tools.</em></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[WavNav — Audio Sample Discovery Reimagined]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/wavnav-screenshot.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/wavnav-screenshot.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Interactive Musical Co-Creation in the Style of Pop Piano</title><link href="https://maxgraf.space/code/2021/05/04/interactive-pop-piano-cocreation.html" rel="alternate" type="text/html" title="Interactive Musical Co-Creation in the Style of Pop Piano" /><published>2021-05-04T18:02:52+00:00</published><updated>2021-05-04T18:02:52+00:00</updated><id>https://maxgraf.space/code/2021/05/04/interactive-pop-piano-cocreation</id><content type="html" xml:base="https://maxgraf.space/code/2021/05/04/interactive-pop-piano-cocreation.html"><![CDATA[<p>Computer-generated music can provide interesting insights into the structure of music and serve as inspiration for
+novice and professional composers alike. I investigate the use of the Transformer-XL neural network architecture for
+interactive co-creation of symbolic music in the style of pop piano. I present a modular system consisting of two
+software components: backend (music generation engine) and frontend (user interaction). I evaluate the neural network
+architecture and discuss the overall system with regard to higher-level issues in the field of computational creativity.
+Based on musical prompts, the system can be used to iteratively generate musical pieces of several bars length. However,
+it does not generalise well to new data, hindering interaction with complex user prompts.</p>
+
+<h3 id="audio-examples">Audio examples</h3>
+<p>Music generated from scratch:</p>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 12px;"><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/FS1.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/FS2.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/FS3.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div></div>
+<p>Music generated from prompts:</p>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom: 12px;"><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/UG1.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/UG2.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div><div>
+    <audio controls="">
+      <source src="/assets/sounds/interactive-pop-piano/UG3.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div></div>
+<div><div style="display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 36px;
+">
+    <img src="/assets/images/cc-project.png" style="max-width: 60%; margin-bottom: 12px;" alt="Screenshot" />
+    <span style="color: gray;">Screenshot</span>
+</div></div>
+
+<p><a href="https://github.com/maxgraf96/pop-music-transformer-xl-python/blob/master/Report.pdf" target="_blank">Report (PDF)</a> •
+<a href="https://github.com/maxgraf96/pop-music-transformer-xl-python" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[Computer-generated music can provide interesting insights into the structure of music and serve as inspiration for novice and professional composers alike. I investigate the use of the Transformer-XL neural network architecture for interactive co-creation of symbolic music in the style of pop piano. I present a modular system consisting of two software components: backend (music generation engine) and frontend (user interaction). I evaluate the neural network architecture and discuss the overall system with regard to higher-level issues in the field of computational creativity. Based on musical prompts, the system can be used to iteratively generate musical pieces of several bars length. However, it does not generalise well to new data, hindering interaction with complex user prompts.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/cc-project.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/cc-project.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sound space exploration using CBCS and AIML</title><link href="https://maxgraf.space/code/2021/04/25/cbcs-aiml-goldsmiths.html" rel="alternate" type="text/html" title="Sound space exploration using CBCS and AIML" /><published>2021-04-25T18:02:52+00:00</published><updated>2021-04-25T18:02:52+00:00</updated><id>https://maxgraf.space/code/2021/04/25/cbcs-aiml-goldsmiths</id><content type="html" xml:base="https://maxgraf.space/code/2021/04/25/cbcs-aiml-goldsmiths.html"><![CDATA[<p>This project, created for the module <em>Data and Machine Learning for Artistic Practice</em> at Goldsmiths University, deals 
+with the problem of sound space exploration. Sound spaces can be defined as a collection of points
+describing arbitrary sonic attributes. They can be constructed using timbral descriptors of music, audio features of
+sound files, synthesizer parameters, and many more. The two main use cases for sound spaces are inspection (visualising
+a collection of sounds) and synthesis (creating new audio from an existing corpus of sounds). This work focuses on the
+second aspect. I use assisted interactive machine learning to create an interactive way of navigating a grain-based 
+soundspace, allowing users to form novel combinations of existing source material.</p>
+
+<div><div style="display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 36px;
+">
+    <img src="/assets/images/cbcs-aiml-goldsmiths.png" style="max-width: 60%; margin-bottom: 12px;" alt="Screenshot" />
+    <span style="color: gray;">Screenshot</span>
+</div></div>
+
+<p>A video explaining and demonstrating the system is available via YouTube.<br />
+For an audio demo, skip to 10:00.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mQojX2_R_sk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p><a href="https://github.com/maxgraf96/cbcs-aiml-backend/blob/main/Report.pdf" target="_blank">Report (PDF)</a> •
+<a href="https://github.com/maxgraf96/cbcs-aiml-backend" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[This project, created for the module Data and Machine Learning for Artistic Practice at Goldsmiths University, deals with the problem of sound space exploration. Sound spaces can be defined as a collection of points describing arbitrary sonic attributes. They can be constructed using timbral descriptors of music, audio features of sound files, synthesizer parameters, and many more. The two main use cases for sound spaces are inspection (visualising a collection of sounds) and synthesis (creating new audio from an existing corpus of sounds). This work focuses on the second aspect. I use assisted interactive machine learning to create an interactive way of navigating a grain-based soundspace, allowing users to form novel combinations of existing source material.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/cbcs-aiml-goldsmiths.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/cbcs-aiml-goldsmiths.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">An Audio-Driven System for Real-Time Music Visualisation</title><link href="https://maxgraf.space/code/2020/08/30/interstellar-thesis.html" rel="alternate" type="text/html" title="An Audio-Driven System for Real-Time Music Visualisation" /><published>2020-08-30T18:02:53+00:00</published><updated>2020-08-30T18:02:53+00:00</updated><id>https://maxgraf.space/code/2020/08/30/interstellar-thesis</id><content type="html" xml:base="https://maxgraf.space/code/2020/08/30/interstellar-thesis.html"><![CDATA[<p><em>Abstract</em>:<br />
+Computer-generated visualisations can accompany recorded or live music to create novel audiovisual experiences for
+audiences. We present a system to streamline the creation of audio-driven visualisations based on audio feature
+extraction and mapping interfaces. Its architecture is based on three modular software components: backend (audio
+plugin), frontend (3D game-like environment), and middleware (visual mapping interface). We conducted a user evaluation
+comprising two stages. Results from the first stage (34 participants) indicate that music visualisations generated with
+the system were significantly better at complementing the music than a baseline visualisation. Nine participants took
+part in the second stage involving interactive tasks. Overall, the system yielded a Creativity Support Index above
+average (68.1) and a System Usability Scale index (58.6) suggesting that ease of use can be improved. Thematic analysis
+revealed that participants enjoyed the system’s synchronicity and expressive capabilities, but found technical problems
+and difficulties understanding the audio feature terminology.</p>
+
+<div><div style="display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 36px;
+">
+    <img src="/assets/images/interstellar.png" style="max-width: 60%; margin-bottom: 12px;" alt="Screenshot" />
+    <span style="color: gray;">Screenshot</span>
+</div></div>
+
+<p>A video explaining and demonstrating the system is available via YouTube.<br />
+For a demo, skip to 5:05.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oasy_ytRaEU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p><a href="https://www.aes.org/e-lib/browse.cfm?elib=21091" target="_blank">Paper (Open Access coming soon)</a> •
+<a href="https://github.com/maxgraf96/music-vis-backend" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[Abstract: Computer-generated visualisations can accompany recorded or live music to create novel audiovisual experiences for audiences. We present a system to streamline the creation of audio-driven visualisations based on audio feature extraction and mapping interfaces. Its architecture is based on three modular software components: backend (audio plugin), frontend (3D game-like environment), and middleware (visual mapping interface). We conducted a user evaluation comprising two stages. Results from the first stage (34 participants) indicate that music visualisations generated with the system were significantly better at complementing the music than a baseline visualisation. Nine participants took part in the second stage involving interactive tasks. Overall, the system yielded a Creativity Support Index above average (68.1) and a System Usability Scale index (58.6) suggesting that ease of use can be improved. Thematic analysis revealed that participants enjoyed the system’s synchronicity and expressive capabilities, but found technical problems and difficulties understanding the audio feature terminology.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/interstellar.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/interstellar.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Karplus-Strong Synthesizer with Dynamic Source Material</title><link href="https://maxgraf.space/code/2020/06/05/karplus-strong-synth.html" rel="alternate" type="text/html" title="Karplus-Strong Synthesizer with Dynamic Source Material" /><published>2020-06-05T18:02:52+00:00</published><updated>2020-06-05T18:02:52+00:00</updated><id>https://maxgraf.space/code/2020/06/05/karplus-strong-synth</id><content type="html" xml:base="https://maxgraf.space/code/2020/06/05/karplus-strong-synth.html"><![CDATA[<h1 id="a-sample-based-karplus-strong-string-synthesis-algorithm">A Sample-based Karplus-Strong (String) Synthesis Algorithm</h1>
+
+<p>We present a real time synthesis algorithm based on the Karplus-Strong string synthesis method. 
+Instead of a short burst of noise used to initially excite the string as specified in the original algorithm, 
+we define a windowed section of a pre-existing audio recording as source material for excitation. 
+This method offers a wide range of possible spectral combinations which allows for accurate control over the 
+timbral characteristics of the synthesised sound. 
+We evaluate and discuss the sonic qualities of the results achieved through variation of the source sample, 
+window position and length.</p>
+
+<div><div style="display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-bottom: 36px;
+">
+    <img src="/assets/images/karplus-strong-synth.png" style="max-width: 60%; margin-bottom: 12px;" alt="Screenshot" />
+    <span style="color: gray;">Screenshot</span>
+</div></div>
+
+<p><a href="https://github.com/maxgraf96/DAFX_Assignment_2/blob/master/Report.pdf" target="_blank">Report (PDF)</a> •
+<a href="https://github.com/maxgraf96/DAFX_Assignment_2" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[A Sample-based Karplus-Strong (String) Synthesis Algorithm]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/karplus-strong-synth.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/karplus-strong-synth.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pitch-Aware Granular Synthesizer</title><link href="https://maxgraf.space/code/2020/06/05/pitch-aware-granular-synth.html" rel="alternate" type="text/html" title="Pitch-Aware Granular Synthesizer" /><published>2020-06-05T18:02:52+00:00</published><updated>2020-06-05T18:02:52+00:00</updated><id>https://maxgraf.space/code/2020/06/05/pitch-aware-granular-synth</id><content type="html" xml:base="https://maxgraf.space/code/2020/06/05/pitch-aware-granular-synth.html"><![CDATA[<h1 id="pitch-aware-granular-synthesis-algorithm-on-the-bela-platform">Pitch-aware granular synthesis algorithm on the Bela platform</h1>
+
+<p>This work shows a real-time audio synthesis algorithm based on granular synthesis. 
+Instead of creating grains from the raw input signal, we dynamically mask the audio data in the 
+frequency domain in order to create sub-signals, from which grains are created. 
+This process enables any audio signal with sufficient content to be used as a basis for synthesis and 
+results in a large variety of possible timbral characteristics. 
+We integrate the algorithm into a digital musical instrument on the Bela platform to demonstrate its capabilities. 
+We evaluate the system on three different types of source data and discuss the results.</p>
+
+<p>A video explaining and demonstrating the system is available via YouTube.<br />
+For an audio demo, skip to 6:19.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rtKI67ztNYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<p><br />
+<a href="https://github.com/maxgraf96/pitch-aware-granular-synth/blob/master/Report.pdf" target="_blank">Report (PDF)</a> •
+<a href="https://github.com/maxgraf96/pitch-aware-granular-synth/" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[Pitch-aware granular synthesis algorithm on the Bela platform]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/pitch-aware-granular-synth.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/pitch-aware-granular-synth.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">End-To-End Raw Audio Based Instrument Resynthesis</title><link href="https://maxgraf.space/code/2020/04/22/e2e-piano-epiano.html" rel="alternate" type="text/html" title="End-To-End Raw Audio Based Instrument Resynthesis" /><published>2020-04-22T18:02:52+00:00</published><updated>2020-04-22T18:02:52+00:00</updated><id>https://maxgraf.space/code/2020/04/22/e2e-piano-epiano</id><content type="html" xml:base="https://maxgraf.space/code/2020/04/22/e2e-piano-epiano.html"><![CDATA[<h1 id="end-to-end-raw-audio-resynthesis-system-for-piano---e-piano">End-To-End Raw Audio Resynthesis System for Piano -&gt; E-Piano</h1>
+
+<p>This project focused on research and implementation of an end-to-end raw audio instrument re-synthesis system on 
+the PyTorch platform. The aim of the project is to accurately model mappings from one set of instrument’s timbral 
+characteristics to another. In this case the two instruments are a sampled Steinway piano and an electronic instrument 
+that imitates the sound of the Yamaha DX7 synthesizer (an electronic piano sound). 
+Audio files for both instruments were automatically synthesised from MIDI data and subsequently used to 
+train two separate models. A convolutional autoencoder is used to find the mappings, which are cleared of noise 
+in the second step, using a modified U-Net structure.</p>
+
+<p><a href="https://github.com/maxgraf96/DLAM_Assignment/blob/master/Report.pdf" target="_blank">Report (PDF)</a> •
+<a href="https://github.com/maxgraf96/DLAM_Assignment" target="_blank">Code</a></p>]]></content><author><name>Max Graf</name></author><category term="code" /><category term="code" /><summary type="html"><![CDATA[End-To-End Raw Audio Resynthesis System for Piano -&gt; E-Piano]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxgraf.space/assets/images/e2e-resynthesis.png" /><media:content medium="image" url="https://maxgraf.space/assets/images/e2e-resynthesis.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
