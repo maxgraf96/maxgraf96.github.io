@@ -96,7 +96,7 @@ permalink: /wavnav/
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
-      <span class="text-white/60 text-sm">First Load (50k)</span>
+      <span class="text-white/60 text-sm">First Load (50k samples)</span>
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
