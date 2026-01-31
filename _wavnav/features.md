@@ -56,7 +56,7 @@ permalink: /wavnav/features/
 <div class="feature-section">
   <div class="feature-row">
     <div class="feature-text">
-      <h2>📁 Folder Management</h3e>
+      <h2>📁 Folder Management</h2>
       <p>
         Organize multiple sample libraries with ease. Activate or deactivate folders on the fly, 
         and WavNav will update the visualization instantly—no re-scanning required.
