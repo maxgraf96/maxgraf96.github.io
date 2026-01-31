@@ -27,6 +27,98 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
+    
+    /* Space-themed background container */
+    .space-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 50%, #0a0a0f 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .space-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle, rgba(34, 194, 143, 0.4) 1px, transparent 2px),
+        radial-gradient(circle, rgba(59, 130, 246, 0.35) 1px, transparent 2px),
+        radial-gradient(circle, rgba(168, 85, 247, 0.3) 1px, transparent 2px),
+        radial-gradient(circle, rgba(236, 72, 153, 0.25) 1px, transparent 2px),
+        radial-gradient(circle, rgba(34, 194, 143, 0.3) 1px, transparent 2px),
+        radial-gradient(circle, rgba(59, 130, 246, 0.25) 1px, transparent 2px);
+      background-size: 
+        120px 120px,
+        180px 180px,
+        220px 220px,
+        280px 280px,
+        150px 150px,
+        200px 200px;
+      background-position: 
+        0 0,
+        40px 60px,
+        120px 30px,
+        80px 120px,
+        200px 100px,
+        30px 180px;
+    }
+    
+    .space-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 100px 100px;
+      opacity: 0.6;
+    }
+    
+    /* Floating star particles */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.2); }
+    }
+    
+    .star-field {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+    }
+    
+    .star.mint { background: rgba(34, 194, 143, 0.9); box-shadow: 0 0 6px rgba(34, 194, 143, 0.6); }
+    .star.blue { background: rgba(59, 130, 246, 0.8); box-shadow: 0 0 6px rgba(59, 130, 246, 0.5); }
+    .star.purple { background: rgba(168, 85, 247, 0.8); box-shadow: 0 0 6px rgba(168, 85, 247, 0.5); }
+    .star.pink { background: rgba(236, 72, 153, 0.7); box-shadow: 0 0 6px rgba(236, 72, 153, 0.4); }
+    
+    /* Ensure content stays above background */
+    .space-bg > * {
+      position: relative;
+      z-index: 2;
+    }
   </style>
   
   
@@ -59,8 +151,13 @@
     </div>
   </header>
   
+  <!-- Space background container (scrolls with page) -->
+  <div class="space-background">
+    <div class="star-field" id="starField"></div>
+  </div>
+  
   <!-- Main Content -->
-  <main class="min-h-screen pt-16 bg-gradient-to-br from-wavnav-dark via-[#0d1117] to-wavnav-dark">
+  <main class="min-h-screen pt-16 relative z-10">
     
     <!-- Hero -->
 <div class="text-center px-4 pt-16 pb-10 mb-10">
@@ -331,6 +428,54 @@
       nav.classList.toggle('border-b');
       nav.classList.toggle('border-white/5');
     }
+    
+    // Generate star field with parallax
+    (function() {
+      const starField = document.getElementById('starField');
+      const spaceBg = document.querySelector('.space-background');
+      if (!starField || !spaceBg) return;
+      
+      const colors = ['mint', 'blue', 'purple', 'pink'];
+      const starCount = Math.min(60, Math.floor(window.innerWidth / 25));
+      
+      // Generate stars across full page
+      function generateStars() {
+        const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        const starsToGenerate = Math.floor(starCount * (docHeight / window.innerHeight));
+        
+        for (let i = 0; i < starsToGenerate; i++) {
+          const star = document.createElement('div');
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          star.className = `star ${color}`;
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * docHeight}px`;
+          star.style.animationDelay = `${Math.random() * 5}s`;
+          star.style.setProperty('--twinkle-duration', `${3 + Math.random() * 4}s`);
+          const size = 1.5 + Math.random() * 1.5;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+          starField.appendChild(star);
+        }
+      }
+      
+      // Wait for DOM to be ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateStars);
+      } else {
+        generateStars();
+      }
+      
+      // Update background height on resize
+      function updateBackgroundHeight() {
+        const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        spaceBg.style.height = `${docHeight}px`;
+      }
+      
+      updateBackgroundHeight();
+      window.addEventListener('resize', updateBackgroundHeight);
+      
+
+    })();
   </script>
 </body>
 </html>
