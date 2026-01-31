@@ -18,7 +18,7 @@ permalink: /wavnav/screenshots/
     </div>
   </div>
 
-  <div class="gallery-item">
+  <div class="gallery-item featured">
     <img src="/assets/images/wavnav-folders.png" alt="Folder Management" class="gallery-image">
     <div class="gallery-caption">
       <h3>Folder Management</h3>
@@ -59,7 +59,7 @@ permalink: /wavnav/screenshots/
     
     <div class="highlight-card">
       <div class="highlight-icon">🌐</div>
-      <h4>Glassmorphic UI>/h4>
+      <h4>Glassmorphic UI</h4>
       <p>Translucent panels with backdrop blur create depth while keeping the beautiful nebula visualization visible.</p>
     </div>
   </div>
@@ -137,6 +137,10 @@ permalink: /wavnav/screenshots/
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-bottom: 80px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery-item {
@@ -159,9 +163,14 @@ permalink: /wavnav/screenshots/
 
 .gallery-image {
   width: 100%;
-  height: auto;
+  height: 400px;
+  object-fit: cover;
   display: block;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-item.featured .gallery-image {
+  height: 500px;
 }
 
 .gallery-caption {
@@ -181,8 +190,11 @@ permalink: /wavnav/screenshots/
 }
 
 .feature-highlights {
-  padding: 60px 0;
+  padding: 60px 20px;
   margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-highlights h2 {
@@ -196,6 +208,7 @@ permalink: /wavnav/screenshots/
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 .highlight-card {
@@ -205,6 +218,7 @@ permalink: /wavnav/screenshots/
   padding: 28px;
   text-align: center;
   transition: all 0.3s ease;
+  height: fit-content;
 }
 
 .highlight-card:hover {
@@ -231,8 +245,11 @@ permalink: /wavnav/screenshots/
 }
 
 .workflow-section {
-  padding: 60px 0;
+  padding: 60px 20px;
   margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .workflow-section h2 {

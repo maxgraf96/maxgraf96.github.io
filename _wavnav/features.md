@@ -293,7 +293,7 @@ permalink: /wavnav/features/
 }
 
 .feature-grid-section {
-  padding: 80px 0;
+  padding: 80px 20px;
 }
 
 .feature-grid-section h2 {
@@ -307,6 +307,8 @@ permalink: /wavnav/features/
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .mini-feature {

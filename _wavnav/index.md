@@ -192,6 +192,10 @@ permalink: /wavnav/
 
 .features-preview {
   margin-bottom: 80px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features-preview h2 {
@@ -282,6 +286,10 @@ permalink: /wavnav/
 
 .tech-specs {
   margin-bottom: 80px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tech-specs h2 {
