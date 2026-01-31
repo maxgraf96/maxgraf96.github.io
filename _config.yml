@@ -32,6 +32,7 @@ header_pages:
   - _pages/research.md
   # - _pages/grants.md
   - _pages/code.md
+  - _wavnav/index.md
   - _pages/about.md
 
 include:
@@ -63,3 +64,6 @@ collections:
   news:
     output: true
     permalink: /news/:title/
+  wavnav:
+    output: true
+    permalink: /wavnav/:title/
