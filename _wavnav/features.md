@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: wavnav
 title: Features
 permalink: /wavnav/features/
 ---

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title }} | {% endif %}WavNav</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    
+    /* WavNav Header */
+    .wavnav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+    
+    .wavnav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+    
+    .wavnav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    
+    .wavnav-logo span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    
+    .wavnav-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .wavnav-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .wavnav-nav a:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .wavnav-nav a.active {
+      color: #22c28f;
+      background: rgba(34, 194, 143, 0.1);
+    }
+    
+    .wavnav-cta {
+      background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      margin-left: 16px;
+    }
+    
+    .wavnav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(34, 194, 143, 0.4);
+    }
+    
+    /* Main Content */
+    .wavnav-main {
+      min-height: 100vh;
+      padding-top: 64px;
+      background: linear-gradient(135deg, #0a0a0a 0%, #0d1117 50%, #0a0a0a 100%);
+    }
+    
+    /* Footer */
+    .wavnav-footer {
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 24px 32px;
+      text-align: center;
+    }
+    
+    .wavnav-footer a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    
+    .wavnav-footer a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    @media (max-width: 768px) {
+      .wavnav-header {
+        padding: 0 16px;
+      }
+      
+      .wavnav-nav {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        padding: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .wavnav-nav.active {
+        display: flex;
+      }
+      
+      .wavnav-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+      }
+      
+      .wavnav-cta {
+        margin: 8px 0 0 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+  </style>
+  
+  {{ content | split: '<style>' | last | split: '</style>' | first }}
+</head>
+<body>
+  <!-- Custom WavNav Header -->
+  <header class="wavnav-header">
+    <a href="/wavnav/" class="wavnav-logo">
+      <img src="/assets/images/wavnav-icon.png" alt="WavNav">
+      <span>WavNav</span>
+    </a>
+    
+    <button class="mobile-menu-btn" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    
+    <nav class="wavnav-nav" id="wavnavNav">
+      <a href="/wavnav/" {% if page.url == '/wavnav/' or page.url == '/wavnav/index.html' %}class="active"{% endif %}>Home</a>
+      <a href="/wavnav/features/" {% if page.url contains '/features/' %}class="active"{% endif %}>Features</a>
+      <a href="/wavnav/screenshots/" {% if page.url contains '/screenshots/' %}class="active"{% endif %}>Screenshots</a>
+      <a href="https://gumroad.com" class="wavnav-cta" target="_blank">Get WavNav</a>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="wavnav-main">
+    {{ content | split: '<style>' | first }}
+  </main>
+  
+  <!-- Minimal Footer -->
+  <footer class="wavnav-footer">
+    <a href="/">← Back to maxgraf.space</a>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      document.getElementById('wavnavNav').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
