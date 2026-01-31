@@ -129,27 +129,6 @@ permalink: /wavnav/features/
   </div>
 </div>
 
-<div class="feature-section alt">
-  <div class="feature-row reverse">
-    <div class="feature-text">
-      <h2>⚙️ Customizable Settings</h2>
-      <p>
-        Fine-tune WavNav to match your workflow. Adjust search sensitivity, 
-        visual effects, and control behaviors to suit your preferences.
-      </p>
-      <ul>
-        <li>Semantic search threshold control</li>
-        <li>Sample-to-sample similarity tuning</li>
-        <li>Zoom sensitivity adjustment</li>
-        <li>Visual effects toggles</li>
-      </ul>
-    </div>
-    <div class="feature-image">
-      <img src="/assets/images/wavnav-settings.png" alt="Settings Panel" class="screenshot">
-    </div>
-  </div>
-</div>
-
 <div class="feature-grid-section">
   <h2>Additional Features</h2>  <div class="mini-feature-grid">
     <div class="mini-feature">

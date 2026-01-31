@@ -26,14 +26,6 @@ permalink: /wavnav/screenshots/
     </div>
   </div>
 
-  <div class="gallery-item">
-    <img src="/assets/images/wavnav-settings.png" alt="Settings Panel" class="gallery-image">
-    <div class="gallery-caption">
-      <h3>Settings Panel</h3>
-      <p>Fine-tune search behavior, control sensitivity, and customize visual effects to match your workflow.</p>
-    </div>
-  </div>
-
   <div class="gallery-item featured">
     <img src="/assets/images/wavnav-scale.png" alt="Large Scale Library" class="gallery-image">
     <div class="gallery-caption">

@@ -19,25 +19,20 @@ This directory contains images for the WavNav sub-website.
 - **Usage:** Features page, screenshots gallery
 - **Shows:** Folder management table with paths and active status
 
-### 4. wavnav-settings.png
-- **Source:** Image 4 (settings panel)
-- **Usage:** Features page, screenshots gallery
-- **Shows:** Settings panel with search options, controls, and sliders
-
-### 5. wavnav-scale.png
+### 4. wavnav-scale.png
 - **Source:** Image 5 (~50k samples visualization)
 - **Usage:** Screenshots gallery featured image
 - **Shows:** Large-scale library with dense nebula visualization
 
-### 6. wavnav-search.png
+### 5. wavnav-search.png
 - **Source:** Crop from Image 2 showing search functionality
 - **Usage:** Features page semantic search section
 
-### 7. wavnav-visual.png
+### 6. wavnav-visual.png
 - **Source:** Crop from Image 5 or Image 2 showing the nebula
 - **Usage:** Features page visual map section
 
-### 8. wavnav-filters.png
+### 7. wavnav-filters.png
 - **Source:** Screenshot showing BPM/key filters in use
 - **Usage:** Features page smart filters section
 
