@@ -26,7 +26,7 @@ permalink: /wavnav/features/
       </ul>
     </div>
     <div class="feature-image">
-      <img src="/assets/images/wavnav-visual.png" alt="Visual Sound Map" class="screenshot">
+      <img src="/assets/images/wavnav-main.png" alt="Visual Sound Map" class="screenshot">
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@ permalink: /wavnav/features/
       </ul>
     </div>
     <div class="feature-image">
-      <img src="/assets/images/wavnav-search.png" alt="Semantic Search" class="screenshot">
+      <img src="/assets/images/wavnav-main.png" alt="Semantic Search" class="screenshot">
     </div>
   </div>
 </div>
@@ -90,7 +90,7 @@ permalink: /wavnav/features/
       </ul>
     </div>
     <div class="feature-image">
-      <img src="/assets/images/wavnav-filters.png" alt="Smart Filters" class="screenshot">
+      <img src="/assets/images/wavnav-main.png" alt="Smart Filters" class="screenshot">
     </div>
   </div>
 </div>
