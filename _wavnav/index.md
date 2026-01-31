@@ -6,15 +6,15 @@ permalink: /wavnav/
 
 <!-- Hero Section -->
 <div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-24 -mt-4 -mx-4 lg:-mx-5 mb-16">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-wavnav-dark via-[#1a1a2e] to-[#16213e]"></div>
-  
   <!-- Animated gradient orbs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/4 left-1/5 w-96 h-96 bg-wavnav-mint/10 rounded-full blur-3xl animate-pulse-slow"></div>
     <div class="absolute top-1/5 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
     <div class="absolute bottom-1/4 left-2/5 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
   </div>
+
+  <!-- Hero stars overlay -->
+  <div class="hero-stars absolute inset-0 pointer-events-none z-[5]" id="heroStars"></div>
   
   <div class="relative z-10 max-w-3xl mx-auto text-center animate-fade-in">
     <img src="/assets/images/wavnav-icon.png" alt="WavNav Icon" class="w-28 h-28 lg:w-32 lg:h-32 rounded-2xl mx-auto mb-6 shadow-2xl shadow-black/50">
@@ -150,4 +150,54 @@ permalink: /wavnav/
     0%, 100% { opacity: 0.5; }
     50% { opacity: 0.8; }
   }
+
+  /* Hero stars */
+  .hero-stars {
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+      radial-gradient(circle, rgba(34, 194, 143, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
+      radial-gradient(circle, rgba(168, 85, 247, 0.5) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      180px 180px,
+      220px 220px,
+      280px 280px;
+    background-position:
+      0 0,
+      40px 60px,
+      120px 30px,
+      80px 120px;
+    opacity: 0.7;
+  }
 </style>
+
+<script>
+  // Generate hero stars
+  (function() {
+    const heroStars = document.getElementById('heroStars');
+    if (!heroStars) return;
+
+    const colors = ['#ffffff', '#22c28f', '#3b82f6', '#a855f7'];
+    const starCount = 30;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.style.cssText = `
+        position: absolute;
+        width: ${1.5 + Math.random() * 1.5}px;
+        height: ${1.5 + Math.random() * 1.5}px;
+        background: ${color};
+        border-radius: 50%;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        opacity: ${0.4 + Math.random() * 0.4};
+        box-shadow: 0 0 ${3 + Math.random() * 3}px ${color};
+        animation: twinkle ${3 + Math.random() * 3}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 5}s;
+      `;
+      heroStars.appendChild(star);
+    }
+  })();
+</script>
