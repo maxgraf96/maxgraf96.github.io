@@ -167,7 +167,7 @@
 	    {% endif %}
 	</head>
 
-<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
+	<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed overflow-x-hidden">
     <!-- WavNav Header -->
     <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
         <div class="h-full flex items-center justify-between px-6 lg:px-8">
@@ -210,10 +210,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
-        <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back
-            to maxgraf.space</a>
-    </footer>
+	    <footer class="relative z-10 bg-black border-t border-white/5 px-6 lg:px-8 py-6 text-center" style="backdrop-filter: blur(10px);">
+	        <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back
+	            to maxgraf.space</a>
+	    </footer>
 
     <script>
         function toggleMenu() {

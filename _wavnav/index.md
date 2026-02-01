@@ -5,7 +5,7 @@ permalink: /wavnav/
 ---
 
 <!-- Hero Section -->
-<div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-24 -mt-4 -mx-4 lg:-mx-5 mb-16">
+<div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-24 -mt-4 mb-16">
   <!-- Animated gradient orbs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/4 left-1/5 w-96 h-96 bg-wavnav-mint/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -17,7 +17,7 @@ permalink: /wavnav/
   <div class="hero-stars absolute inset-0 pointer-events-none z-[5]" id="heroStars"></div>
   
   <div class="relative z-10 max-w-3xl mx-auto text-center animate-fade-in">
-    <img src="/assets/images/wavnav-icon.png" alt="WavNav Icon" class="w-28 h-28 lg:w-32 lg:h-32 rounded-2xl mx-auto mb-6 shadow-2xl shadow-black/50">
+    <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5);">
     
     <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up">WavNav</h1>
     
@@ -106,7 +106,7 @@ permalink: /wavnav/
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
-      <span class="text-white/60 text-sm">Powered by joint music-text embeddings</span>
+      <span class="text-white/60 text-sm">Using joint music-text embeddings</span>
     </div>
   </div>
 </div>
