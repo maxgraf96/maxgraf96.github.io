@@ -4,6 +4,25 @@ title: Features
 permalink: /wavnav/features/
 ---
 
+<style>
+  /* /wavnav/features/ only: show dashes for feature lists (Tailwind base removes default markers). */
+  .wavnav-features ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .wavnav-features ul > li > span.text-wavnav-mint {
+    flex: 0 0 1ch;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .wavnav-features ul > li > span.text-wavnav-mint::before {
+    content: "-";
+  }
+</style>
+
+<div class="wavnav-features">
 <!-- Hero -->
 <div class="text-center px-4 pt-16 pb-10 mb-10">
   <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Features</h1>
@@ -241,7 +260,9 @@ permalink: /wavnav/features/
 <!-- CTA -->
 <div class="text-center px-4 py-16 mt-10">
   <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-white/95">Try it out</h2>
-  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
     Get WavNav
   </a>
+</div>
+
 </div>

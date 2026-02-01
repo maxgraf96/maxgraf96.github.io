@@ -1,7 +1,43 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, sans-serif;
   
   --color-wavnav-dark: #0a0a0a;
   --color-wavnav-darker: #0f0f0f;

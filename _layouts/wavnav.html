@@ -13,15 +13,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
 
-    <!-- Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Main CSS with Tailwind -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <style>
+        @font-face {
+            font-family: "Nebulous";
+            src: url("{{ '/assets/fonts/NebulousRegular-54aV.ttf' | relative_url }}") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .font-nebulous {
+            font-family: "Nebulous", var(--font-sans), system-ui, -apple-system, sans-serif;
+        }
+
         /* Minimal custom styles for things Tailwind can't do easily */
         .glass-header {
             background: rgba(10, 10, 10, 0.85);
@@ -35,7 +42,7 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
+            height: 100vh;
             background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 50%, #0a0a0f 100%);
             pointer-events: none;
             z-index: 0;
@@ -104,8 +111,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
@@ -173,7 +180,7 @@
         <div class="h-full flex items-center justify-between px-6 lg:px-8">
             <a href="/wavnav/" class="flex items-center gap-3 text-white no-underline">
                 <img src="/assets/images/wavnav-icon.png" alt="WavNav" class="w-9 h-9 rounded-lg">
-                <span class="text-xl font-semibold tracking-tight">WavNav</span>
+                <span class="text-xl font-semibold tracking-tight font-nebulous">WavNav</span>
             </a>
 
             <button class="lg:hidden bg-transparent border-none text-white p-2" onclick="toggleMenu()">
@@ -238,14 +245,38 @@
             if (!starField || !spaceBg) return;
 
             const colors = ['mint', 'blue', 'purple', 'pink'];
-            const starCount = Math.min(60, Math.floor(window.innerWidth / 25));
+            let starCount = Math.min(60, Math.floor(window.innerWidth / 25));
+            let updateScheduled = false;
+            let resizeObserver = null;
+            let mutationObserver = null;
 
-            // Generate stars across full page
-            function generateStars() {
-                const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-                const starsToGenerate = Math.floor(starCount * (docHeight / window.innerHeight));
+            function getDocHeight() {
+                const body = document.body;
+                const html = document.documentElement;
+                return Math.max(
+                    body.scrollHeight,
+                    html.scrollHeight,
+                    body.offsetHeight,
+                    html.offsetHeight,
+                    body.clientHeight,
+                    html.clientHeight
+                );
+            }
 
-                for (let i = 0; i < starsToGenerate; i++) {
+            function setBackgroundHeight(docHeight) {
+                spaceBg.style.height = `${docHeight}px`;
+            }
+
+            function clearStars() {
+                starField.replaceChildren();
+            }
+
+            function ensureStars(docHeight) {
+                const targetTotal = Math.floor(starCount * (docHeight / window.innerHeight));
+                const existing = starField.children.length;
+                const toAdd = Math.max(0, targetTotal - existing);
+
+                for (let i = 0; i < toAdd; i++) {
                     const star = document.createElement('div');
                     const color = colors[Math.floor(Math.random() * colors.length)];
                     star.className = `star ${color}`;
@@ -260,21 +291,46 @@
                 }
             }
 
-            // Wait for DOM to be ready
+            function updateBackgroundAndStars() {
+                const docHeight = getDocHeight();
+                setBackgroundHeight(docHeight);
+                ensureStars(docHeight);
+            }
+
+            function scheduleUpdate() {
+                if (updateScheduled) return;
+                updateScheduled = true;
+                requestAnimationFrame(() => {
+                    updateScheduled = false;
+                    updateBackgroundAndStars();
+                });
+            }
+
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', generateStars);
+                document.addEventListener('DOMContentLoaded', scheduleUpdate, { once: true });
             } else {
-                generateStars();
+                scheduleUpdate();
             }
 
-            // Update background height on resize
-            function updateBackgroundHeight() {
-                const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-                spaceBg.style.height = `${docHeight}px`;
+            // Catch late layout changes (images, fonts, dynamic content).
+            window.addEventListener('load', scheduleUpdate);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(scheduleUpdate).catch(() => { });
             }
 
-            updateBackgroundHeight();
-            window.addEventListener('resize', updateBackgroundHeight);
+            window.addEventListener('resize', () => {
+                starCount = Math.min(60, Math.floor(window.innerWidth / 25));
+                clearStars();
+                scheduleUpdate();
+            });
+
+            if ('ResizeObserver' in window) {
+                resizeObserver = new ResizeObserver(scheduleUpdate);
+                resizeObserver.observe(document.body);
+            } else if ('MutationObserver' in window) {
+                mutationObserver = new MutationObserver(scheduleUpdate);
+                mutationObserver.observe(document.body, { childList: true, subtree: true });
+            }
         })();
     </script>
 </body>

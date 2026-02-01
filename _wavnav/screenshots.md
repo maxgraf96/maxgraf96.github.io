@@ -88,7 +88,7 @@ permalink: /wavnav/screenshots/
 <!-- CTA -->
 <div class="text-center px-4 py-12">
   <p class="text-white/60 mb-6 text-lg">Try WavNav</p>
-  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+  <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
     Get WavNav
   </a>
 </div>

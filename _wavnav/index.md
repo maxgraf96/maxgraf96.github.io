@@ -19,16 +19,16 @@ permalink: /wavnav/
   <div class="relative z-10 max-w-3xl mx-auto text-center animate-fade-in">
     <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5);">
     
-    <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up">WavNav</h1>
+    <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up font-nebulous">WavNav</h1>
     
     <p class="text-xl lg:text-2xl text-white/70 mb-5 font-light animate-slide-up" style="animation-delay: 0.1s;">Audio sample explorer</p>
     
     <p class="text-base lg:text-lg text-white/60 max-w-xl mx-auto mb-8 leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
-      Bla bla bla
+      An easy way to explore your audio sample library.
     </p>
     
     <div class="flex flex-wrap gap-4 justify-center animate-slide-up" style="animation-delay: 0.3s;">
-      <a href="https://gumroad.com" class="inline-flex items-center px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-white shadow-wavnav-mint/40" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+      <a href="https://gumroad.com" class="inline-flex items-center px-8 py-4 rounded-full text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-white shadow-wavnav-mint/40" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
         Get WavNav
       </a>
       <a href="/wavnav/features" class="inline-flex items-center px-8 py-4 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
@@ -114,9 +114,9 @@ permalink: /wavnav/
 <!-- Final CTA -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-16">
   <div class="text-center p-12 lg:p-16 rounded-3xl border border-wavnav-mint/20" style="background: linear-gradient(135deg, rgba(34, 194, 143, 0.1) 0%, rgba(28, 140, 96, 0.05) 100%);" style="backdrop-filter: blur(3px)">
-    <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Stop digging through folders</h2>
-    <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Find samples faster with WavNav.</p>
-    <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+    <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Find your hidden gems</h2>
+    <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Rediscover the joy of digging.</p>
+    <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
       Get WavNav
     </a>
   </div>
