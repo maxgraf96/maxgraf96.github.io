@@ -129,6 +129,225 @@ The basic idea is to make finding samples easier by visually placing them on a m
 </div>
   </div>
 
-</footer></body>
+</footer><style>
+  .img-zoomable {
+    cursor: zoom-in;
+  }
+
+  .img-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transition: opacity 220ms cubic-bezier(0.2, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .img-zoom-overlay.is-open {
+    opacity: 1;
+  }
+
+  .img-zoom-overlay::after {
+    content: "Esc to close";
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font: 500 12px/1.2 system-ui, -apple-system, sans-serif;
+    letter-spacing: 0.02em;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .img-zoom-img {
+    position: fixed;
+    margin: 0;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    cursor: zoom-out;
+    will-change: top, left, width, height, border-radius;
+    transition:
+      top 260ms cubic-bezier(0.2, 0, 0.2, 1),
+      left 260ms cubic-bezier(0.2, 0, 0.2, 1),
+      width 260ms cubic-bezier(0.2, 0, 0.2, 1),
+      height 260ms cubic-bezier(0.2, 0, 0.2, 1),
+      border-radius 260ms cubic-bezier(0.2, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .img-zoom-overlay,
+    .img-zoom-img {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const NO_ZOOM_SELECTOR = '[data-no-zoom], .no-zoom';
+    const CLICKABLE_ANCESTOR_SELECTOR = 'a, button';
+    const VIEWPORT_MARGIN = 24;
+
+    let openState = null;
+
+    function getTargetRect(img) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const maxW = Math.max(0, vw - VIEWPORT_MARGIN * 2);
+      const maxH = Math.max(0, vh - VIEWPORT_MARGIN * 2);
+
+      const naturalW = img.naturalWidth || img.width || 1;
+      const naturalH = img.naturalHeight || img.height || 1;
+      const ratio = naturalW / naturalH;
+
+      let targetW = maxW;
+      let targetH = targetW / ratio;
+      if (targetH > maxH) {
+        targetH = maxH;
+        targetW = targetH * ratio;
+      }
+
+      return {
+        left: (vw - targetW) / 2,
+        top: (vh - targetH) / 2,
+        width: targetW,
+        height: targetH,
+      };
+    }
+
+    function isZoomableImage(img) {
+      if (!img) return false;
+      if (img.closest('.img-zoom-overlay')) return false;
+      if (img.closest(NO_ZOOM_SELECTOR)) return false;
+      if (img.getAttribute('data-no-zoom') !== null) return false;
+      if (img.getAttribute('role') === 'presentation') return false;
+      if (img.alt === '' && img.getAttribute('aria-hidden') === 'true') return false;
+      return true;
+    }
+
+    function setStyleRect(el, rect) {
+      el.style.left = rect.left + 'px';
+      el.style.top = rect.top + 'px';
+      el.style.width = rect.width + 'px';
+      el.style.height = rect.height + 'px';
+    }
+
+    function closeZoom() {
+      if (!openState) return;
+
+      const { overlay, zoomImg, sourceRect, restore } = openState;
+      openState = null;
+
+      window.removeEventListener('keydown', onKeyDown, true);
+      window.removeEventListener('resize', closeZoom);
+
+      setStyleRect(zoomImg, sourceRect);
+      overlay.classList.remove('is-open');
+
+      const cleanup = () => {
+        overlay.removeEventListener('transitionend', cleanup);
+        overlay.remove();
+        restore();
+      };
+
+      overlay.addEventListener('transitionend', cleanup);
+      // Fallback in case transitionend doesn't fire (e.g. reduced motion).
+      setTimeout(cleanup, 350);
+    }
+
+    function onKeyDown(e) {
+      if (e.key === 'Escape') closeZoom();
+    }
+
+    function openZoom(img) {
+      if (openState) return;
+
+      const sourceRect = img.getBoundingClientRect();
+      const computed = window.getComputedStyle(img);
+      const initialRadius = computed.borderRadius || '0px';
+
+      const overlay = document.createElement('div');
+      overlay.className = 'img-zoom-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+
+      const zoomImg = document.createElement('img');
+      zoomImg.className = 'img-zoom-img';
+      zoomImg.alt = img.alt || '';
+      zoomImg.src = img.currentSrc || img.src;
+      zoomImg.decoding = 'async';
+      zoomImg.loading = 'eager';
+      zoomImg.style.borderRadius = initialRadius;
+
+      setStyleRect(zoomImg, sourceRect);
+
+      overlay.appendChild(zoomImg);
+      document.body.appendChild(overlay);
+
+      const previousOverflow = document.documentElement.style.overflow;
+      document.documentElement.style.overflow = 'hidden';
+
+      openState = {
+        overlay,
+        zoomImg,
+        sourceRect,
+        restore: () => {
+          document.documentElement.style.overflow = previousOverflow;
+        },
+      };
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeZoom();
+      });
+      zoomImg.addEventListener('click', closeZoom);
+
+      window.addEventListener('keydown', onKeyDown, true);
+      window.addEventListener('resize', closeZoom);
+
+      requestAnimationFrame(() => {
+        overlay.classList.add('is-open');
+        const target = getTargetRect(img);
+        setStyleRect(zoomImg, target);
+        zoomImg.style.borderRadius = '16px';
+      });
+    }
+
+    // Mark images as zoomable (for cursor affordance), but keep behavior via delegation.
+    function markZoomables(root) {
+      const scope = root || document;
+      scope.querySelectorAll('img').forEach((img) => {
+        if (isZoomableImage(img)) img.classList.add('img-zoomable');
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => markZoomables(), { once: true });
+    } else {
+      markZoomables();
+    }
+
+    document.addEventListener(
+      'click',
+      (e) => {
+        const target = e.target;
+        const img = target && target.tagName === 'IMG' ? target : null;
+        if (!isZoomableImage(img)) return;
+
+        // If an image is inside a link/button, treat zoom as the primary action.
+        const clickable = img.closest(CLICKABLE_ANCESTOR_SELECTOR);
+        if (clickable) e.preventDefault();
+
+        openZoom(img);
+      },
+      true
+    );
+  })();
+</script>
+
+</body>
 
 </html>
