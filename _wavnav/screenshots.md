@@ -47,37 +47,37 @@ permalink: /wavnav/screenshots/
   <h2 class="text-2xl lg:text-3xl font-semibold text-center mb-10 text-white/95">Interface</h2>
   
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Search Bar</h4>
       <p class="text-white/60 text-sm leading-relaxed">Type to search, filter by key and BPM, all in one place.</p>
     </div>
     
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Audio Player</h4>
-      <p class="text-white/60 text-sm leading-relaxed">Built-in playback with waveform view. Preview without leaving the app.</p>
+      <p class="text-white/60 text-sm leading-relaxed">Preview without leaving the app.</p>
     </div>
     
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Progress</h4>
       <p class="text-white/60 text-sm leading-relaxed">See what's happening during scans and imports.</p>
     </div>
     
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Settings</h4>
-      <p class="text-white/60 text-sm leading-relaxed">Adjust audio settings, visualization options, and preferences.</p>
+      <p class="text-white/60 text-sm leading-relaxed">Adjust audio settings and visualisation options.</p>
     </div>
     
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Appearance</h4>
       <p class="text-white/60 text-sm leading-relaxed">Change colors, point sizes, and glow to your taste.</p>
     </div>
     
-    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5">
+    <div class="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/5" style="backdrop-filter: blur(3px)">
       <div class="text-3xl mb-4"></div>
       <h4 class="text-white/95 font-semibold mb-2">Shortcuts</h4>
       <p class="text-white/60 text-sm leading-relaxed">Keyboard controls for search, playback, and navigation.</p>

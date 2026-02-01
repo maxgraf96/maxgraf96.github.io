@@ -37,7 +37,7 @@ permalink: /wavnav/features/
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Visual Browser</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Your samples appear as dots on a map. Similar sounds cluster together based on their audio characteristics, 
-          so you can browse visually instead of scrolling through folder lists.
+          so you can explore the map instead of scrolling through folder lists.
         </p>
         <ul class="space-y-3">
           <li class="flex items-start text-white/60">
@@ -75,7 +75,7 @@ permalink: /wavnav/features/
       <div>
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Search by Sound</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
-          Describe what you want ("bright pluck", "dark pad") or drag in a sample to find similar sounds. 
+          Describe what you want ("bright pluck", "dark pad") to find similar sounds. 
           Uses semantic matching to understand audio content, not just filenames.
         </p>
         <ul class="space-y-3">
@@ -85,15 +85,11 @@ permalink: /wavnav/features/
           </li>
           <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
-            Drag-and-drop sample search
+            Similar sample search
           </li>
           <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
             Adjustable similarity threshold
-          </li>
-          <li class="flex items-start text-white/60">
-            <span class="text-wavnav-mint font-bold mr-3"></span>
-            Falls back to filename search
           </li>
         </ul>
       </div>
@@ -124,10 +120,10 @@ permalink: /wavnav/features/
             <span class="text-wavnav-mint font-bold mr-3"></span>
             Settings saved between sessions
           </li>
-          <li class="flex items-start text-white/60">
+          <!-- <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
             Drag-and-drop to add folders
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="order-1 lg:order-2">
@@ -142,7 +138,7 @@ permalink: /wavnav/features/
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <div>
-        <img src="/assets/images/wavnav-main.png" alt="Smart Filters" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10">
+        <img src="/assets/images/wavnav-filters.png" alt="Smart Filters" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10">
       </div>
       <div>
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Key & BPM Filters</h2>
@@ -151,10 +147,6 @@ permalink: /wavnav/features/
           without auditioning everything.
         </p>
         <ul class="space-y-3">
-          <li class="flex items-start text-white/60">
-            <span class="text-wavnav-mint font-bold mr-3"></span>
-            All 12 musical keys
-          </li>
           <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
             BPM range slider (20-200+)
@@ -190,15 +182,11 @@ permalink: /wavnav/features/
           </li>
           <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
-            SQLite cache with embeddings
+            Cache for folder configurations
           </li>
           <li class="flex items-start text-white/60">
             <span class="text-wavnav-mint font-bold mr-3"></span>
             Background processing
-          </li>
-          <li class="flex items-start text-white/60">
-            <span class="text-wavnav-mint font-bold mr-3"></span>
-            Progress bars for long operations
           </li>
         </ul>
       </div>
