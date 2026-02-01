@@ -185,15 +185,15 @@ permalink: /wavnav/features/
       </div>
       <div class="order-1 lg:order-2">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center" style="backdrop-filter: blur(3px)">
             <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">~1 min</span>
             <span class="text-white/70 text-sm">First load (50k samples)</span>
           </div>
-          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center" style="backdrop-filter: blur(3px)">
             <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">&lt;3s</span>
             <span class="text-white/70 text-sm">Cached startup</span>
           </div>
-          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center">
+          <div class="bg-wavnav-mint/10 border border-wavnav-mint/30 rounded-2xl p-6 text-center" style="backdrop-filter: blur(3px)">
             <span class="block text-3xl lg:text-4xl font-bold text-wavnav-mint mb-2">60fps</span>
             <span class="text-white/70 text-sm">Smooth navigation</span>
           </div>
@@ -206,38 +206,34 @@ permalink: /wavnav/features/
 <!-- Additional Features Grid -->
 <div class="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Also includes</h2>
+    <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Little bits</h2>
     
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Hover to Preview</h4>
-        <p class="text-white/60 text-sm leading-relaxed">Hold your mouse over any sample to hear it. No clicking needed.</p>
+        <p class="text-white/60 text-sm leading-relaxed">Hold your mouse over any sample to hear it.</p>
       </div>
       
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Copy Path</h4>
         <p class="text-white/60 text-sm leading-relaxed">One-click copy to clipboard for importing into your DAW.</p>
       </div>
       
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Show in Finder</h4>
         <p class="text-white/60 text-sm leading-relaxed">Open the containing folder right from the app.</p>
       </div>
       
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Find Similar</h4>
         <p class="text-white/60 text-sm leading-relaxed">Right-click any sample to find variations.</p>
       </div>
       
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Auto-Save</h4>
         <p class="text-white/60 text-sm leading-relaxed">Your folders and settings are remembered.</p>
       </div>
       
-      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30">
-        <h4 class="text-white/95 font-semibold mb-3"> Dark Theme</h4>
-        <p class="text-white/60 text-sm leading-relaxed">Easy on the eyes during long sessions.</p>
-      </div>
     </div>
   </div>
 </div>
