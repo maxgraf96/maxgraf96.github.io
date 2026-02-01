@@ -146,13 +146,15 @@
         }
     </style>
 
-    
-    
+	    
+	    
+	    
+	    
 
-    
-    
-        <style>
-            
+	    
+	    
+	        <style>
+	            
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -184,28 +186,28 @@
   /* Hero stars */
   .hero-stars {
     background-image:
-      radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+      /* radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px), */
       radial-gradient(circle, rgba(34, 194, 143, 0.6) 1px, transparent 1px),
       radial-gradient(circle, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
       radial-gradient(circle, rgba(168, 85, 247, 0.5) 1px, transparent 1px);
     background-size:
-      120px 120px,
+      /* 120px 120px, */
       180px 180px,
       220px 220px,
       280px 280px;
     background-position:
-      0 0,
+      /* 0 0, */
       40px 60px,
       120px 30px,
       80px 120px;
     opacity: 0.7;
   }
 
-        </style>
-    
-</head>
+	        </style>
+	    
+	</head>
 
-<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed">
+	<body class="bg-wavnav-dark text-white min-h-screen font-sans leading-relaxed overflow-x-hidden">
     <!-- WavNav Header -->
     <header class="fixed top-0 left-0 right-0 h-16 z-50 glass-header border-b border-white/5">
         <div class="h-full flex items-center justify-between px-6 lg:px-8">
@@ -245,7 +247,7 @@
     <!-- Main Content -->
     <main class="min-h-screen pt-16 relative z-10">
         <!-- Hero Section -->
-<div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-24 -mt-4 -mx-4 lg:-mx-5 mb-16">
+<div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-24 -mt-4 mb-16">
   <!-- Animated gradient orbs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/4 left-1/5 w-96 h-96 bg-wavnav-mint/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -257,14 +259,14 @@
   <div class="hero-stars absolute inset-0 pointer-events-none z-[5]" id="heroStars"></div>
   
   <div class="relative z-10 max-w-3xl mx-auto text-center animate-fade-in">
-    <img src="/assets/images/wavnav-icon.png" alt="WavNav Icon" class="w-28 h-28 lg:w-32 lg:h-32 rounded-2xl mx-auto mb-6 shadow-2xl shadow-black/50" />
+    <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5);" />
     
     <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up">WavNav</h1>
     
-    <p class="text-xl lg:text-2xl text-white/70 mb-5 font-light animate-slide-up" style="animation-delay: 0.1s;">A modern sample browser</p>
+    <p class="text-xl lg:text-2xl text-white/70 mb-5 font-light animate-slide-up" style="animation-delay: 0.1s;">Audio sample explorer</p>
     
     <p class="text-base lg:text-lg text-white/60 max-w-xl mx-auto mb-8 leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
-      Browse your sample library visually. Find sounds faster with semantic search and smart filters.
+      Bla bla bla
     </p>
     
     <div class="flex flex-wrap gap-4 justify-center animate-slide-up" style="animation-delay: 0.3s;">
@@ -283,35 +285,35 @@
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">What it does</h2>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1">
+    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
       <h3 class="text-xl font-semibold mb-3 text-white/95">Visual Browser</h3>
-      <p class="text-white/60 leading-relaxed">See your samples as dots on a map. Similar sounds appear close together, so you can find what you need by looking around.</p>
+      <p class="text-white/60 leading-relaxed">See your samples as dots on a map. Similar sounds appear close together, so you can find what you need by looking around. Ideal for exploring large folders of sounds.</p>
     </div>
     
-    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1">
+    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
       <h3 class="text-xl font-semibold mb-3 text-white/95">Search by Sound</h3>
-      <p class="text-white/60 leading-relaxed">Type "bright pluck" or drag in a sample to find similar sounds. No need to remember filenames.</p>
+      <p class="text-white/60 leading-relaxed">Type "bright pluck", "snare reverb". No need to remember filenames.</p>
     </div>
     
-    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1">
+    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
       <h3 class="text-xl font-semibold mb-3 text-white/95">Fast Loading</h3>
       <p class="text-white/60 leading-relaxed">Handles large libraries (50k+ samples) without slowing down. First load takes about a minute, then starts instantly.</p>
     </div>
     
-    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1">
+    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
       <h3 class="text-xl font-semibold mb-3 text-white/95">Filter by Key &amp; BPM</h3>
-      <p class="text-white/60 leading-relaxed">Narrow down results by musical key, tempo, or tags. Stop scrolling through folders.</p>
+      <p class="text-white/60 leading-relaxed">Narrow down results by musical key or tempo.</p>
     </div>
   </div>
 </div>
 
 <!-- Screenshot Showcase -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-24">
-  <div class="bg-black/30 rounded-3xl border border-white/5 p-8 lg:p-12 text-center">
+  <div class="bg-black/30 rounded-3xl border border-white/5 p-8 lg:p-12 text-center" style="backdrop-filter: blur(3px)">
     <h2 class="text-3xl lg:text-4xl font-semibold mb-10 text-white/95">How it looks</h2>
     
     <div class="max-w-4xl mx-auto mb-8">
@@ -329,31 +331,31 @@
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Specs</h2>
   
   <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">50k+</span>
       <span class="text-white/60 text-sm">Samples Supported</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
       <span class="text-white/60 text-sm">First Load (50k samples)</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">OpenGL</span>
       <span class="text-white/60 text-sm">GPU Rendered</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">CLAP</span>
-      <span class="text-white/60 text-sm">Semantic Search</span>
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
+      <span class="text-white/60 text-sm">Using joint music-text embeddings</span>
     </div>
   </div>
 </div>
 
 <!-- Final CTA -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-16">
-  <div class="text-center p-12 lg:p-16 rounded-3xl border border-wavnav-mint/20" style="background: linear-gradient(135deg, rgba(34, 194, 143, 0.1) 0%, rgba(28, 140, 96, 0.05) 100%);">
+  <div class="text-center p-12 lg:p-16 rounded-3xl border border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
     <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Stop digging through folders</h2>
     <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Find samples faster with WavNav.</p>
     <a href="https://gumroad.com" class="inline-flex items-center px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
@@ -398,10 +400,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/50 border-t border-white/5 px-6 lg:px-8 py-6 text-center">
-        <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back
-            to maxgraf.space</a>
-    </footer>
+	    <footer class="relative z-10 bg-black border-t border-white/5 px-6 lg:px-8 py-6 text-center" style="backdrop-filter: blur(10px);">
+	        <a href="/" class="text-white/50 text-sm no-underline transition-colors duration-200 hover:text-white/80">← Back
+	            to maxgraf.space</a>
+	    </footer>
 
     <script>
         function toggleMenu() {
