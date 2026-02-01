@@ -73,7 +73,7 @@ permalink: /wavnav/features/
         <img src="/assets/images/wavnav-main.png" alt="Semantic Search" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10">
       </div>
       <div>
-        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Search by Sound</h2>
+        <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Semantic Search</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Describe what you want ("bright pluck", "dark pad") to find similar sounds. 
           Uses semantic matching to understand audio content, not just filenames.

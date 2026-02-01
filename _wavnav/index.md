@@ -51,7 +51,7 @@ permalink: /wavnav/
     
     <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
-      <h3 class="text-xl font-semibold mb-3 text-white/95">Search by Sound</h3>
+      <h3 class="text-xl font-semibold mb-3 text-white/95">Semantic Search</h3>
       <p class="text-white/60 leading-relaxed">Type "bright pluck", "snare reverb". No need to remember filenames.</p>
     </div>
     
