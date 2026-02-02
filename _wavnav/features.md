@@ -36,7 +36,6 @@ permalink: /wavnav/features/
 <!-- Hero -->
 <div class="text-center px-4 pt-16 pb-10 mb-10 animate-slide-up">
   <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Features</h1>
-  <p class="text-lg lg:text-xl text-white/60">What WavNav can do</p>
 </div>
 
 <!-- Feature 1: Visual Sound Map -->
