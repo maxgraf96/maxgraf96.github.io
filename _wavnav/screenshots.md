@@ -4,8 +4,20 @@ title: Screenshots
 permalink: /wavnav/screenshots/
 ---
 
+<style>
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+</style>
+
 <!-- Hero -->
-<div class="text-center px-4 pt-14 pb-10 mb-6">
+<div class="text-center px-4 pt-14 pb-10 mb-6 animate-slide-up">
   <h1 class="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-wavnav-mint bg-clip-text text-transparent">Screenshots</h1>
   <p class="text-lg lg:text-xl text-white/60">What WavNav looks like</p>
 </div>

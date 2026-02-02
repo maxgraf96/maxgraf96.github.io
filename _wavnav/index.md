@@ -16,7 +16,7 @@ permalink: /wavnav/
   <!-- Hero stars overlay -->
   <div class="hero-stars absolute inset-0 pointer-events-none z-[5]" id="heroStars"></div>
   
-  <div class="relative z-10 max-w-3xl mx-auto text-center animate-fade-in">
+  <div class="relative z-10 max-w-3xl mx-auto text-center animate-slide-up">
     <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" data-no-zoom class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5);">
     
     <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up font-nebulous">WavNav</h1>
@@ -123,18 +123,9 @@ permalink: /wavnav/
 </div>
 
 <style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
   @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
   }
   
   .animate-slide-up {
