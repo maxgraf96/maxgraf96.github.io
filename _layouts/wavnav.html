@@ -17,6 +17,19 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <style>
+        /* Main site sans (override Atkinson Hyperlegible for WavNav pages) */
+        :root {
+            --font-sans: "Pretendard", system-ui, -apple-system, sans-serif;
+        }
+
+        @font-face {
+            font-family: "Pretendard";
+            src: url("{{ '/assets/fonts/pretendard/public/variable/PretendardVariable.ttf' | relative_url }}") format("truetype");
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
         @font-face {
             font-family: "Nebulous";
             src: url("{{ '/assets/fonts/NebulousRegular-54aV.ttf' | relative_url }}") format("truetype");
