@@ -28,11 +28,14 @@ permalink: /wavnav/
     </p>
     
     <div class="flex flex-wrap gap-4 justify-center animate-slide-up" style="animation-delay: 0.3s;">
-      <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-8 py-4 rounded-full text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-white shadow-wavnav-mint/40" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
-        Get WavNav
-      </a>
       <a href="/wavnav/features" class="inline-flex items-center px-8 py-4 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
         See Features
+      </a>
+      <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" class="inline-flex items-center px-8 py-4 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
+        Try for free
+      </a>
+      <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-8 py-4 rounded-full text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-white shadow-wavnav-mint/40" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+        Buy WavNav
       </a>
     </div>
   </div>
@@ -40,7 +43,7 @@ permalink: /wavnav/
 
 <!-- Features Section -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
-  <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">What it does</h2>
+  <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Feature Summary</h2>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
@@ -72,7 +75,7 @@ permalink: /wavnav/
 <!-- Screenshot Showcase -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-24">
   <div class="bg-black/30 rounded-3xl border border-white/5 p-8 lg:p-12 text-center" style="backdrop-filter: blur(3px)">
-    <h2 class="text-3xl lg:text-4xl font-semibold mb-10 text-white/95">How it looks</h2>
+    <h2 class="text-3xl lg:text-4xl font-semibold mb-10 text-white/95">Screenshots!</h2>
     
     <div class="max-w-4xl mx-auto mb-8">
       <img src="/assets/images/wavnav-main.png" alt="WavNav Main Interface" class="w-full rounded-xl shadow-2xl shadow-black/50 border border-white/10">
@@ -100,8 +103,8 @@ permalink: /wavnav/
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">OpenGL</span>
-      <span class="text-white/60 text-sm">GPU Rendered</span>
+      <span class="block text-3xl lg:text-3xl font-bold text-wavnav-mint mb-2">High performance rendering</span>
+      <span class="text-white/60 text-sm">GPU-accelerated via OpenGL/Metal</span>
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
@@ -111,14 +114,36 @@ permalink: /wavnav/
   </div>
 </div>
 
+<!-- Requirements -->
+<div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
+  <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Platforms</h2>
+  
+  <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
+      <span class="text-white/60 text-sm">Supported (Intel & Apple Silicon)</span>
+    </div>
+    
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint/60 mb-2">Windows</span>
+      <span class="text-white/60 text-sm">Coming soon</span>
+    </div>
+  </div>
+</div>
+
 <!-- Final CTA -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-16">
   <div class="text-center p-12 lg:p-16 rounded-3xl border border-wavnav-mint/20" style="background: linear-gradient(135deg, rgba(34, 194, 143, 0.1) 0%, rgba(28, 140, 96, 0.05) 100%);" style="backdrop-filter: blur(3px)">
     <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Find your hidden gems</h2>
     <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Rediscover the joy of digging.</p>
-    <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
-      Get WavNav
-    </a>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" class="inline-flex items-center px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
+        Try for free
+      </a>
+      <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+        Buy WavNav
+      </a>
+    </div>
   </div>
 </div>
 

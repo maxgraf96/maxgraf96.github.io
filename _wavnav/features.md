@@ -254,9 +254,14 @@ permalink: /wavnav/features/
 <!-- CTA -->
 <div class="text-center px-4 py-16 mt-10">
   <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-white/95">Try it out</h2>
-  <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
-    Get WavNav
-  </a>
+  <div class="flex flex-wrap gap-4 justify-center">
+    <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" class="inline-flex items-center px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
+      Try for free
+    </a>
+    <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
+      Buy WavNav
+    </a>
+  </div>
 </div>
 
 </div>
