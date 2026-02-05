@@ -98,7 +98,7 @@ permalink: /wavnav/screenshots/
 
 <!-- CTA -->
 <div class="text-center px-4 py-12">
-  <p class="text-white/60 mb-6 text-lg">Try WavNav</p>
+  <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-white/95">Try it out</h2>
   <div class="flex flex-wrap gap-4 justify-center">
     <button onclick="openDownloadModal()" class="inline-flex items-center px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15 cursor-pointer">
       Try for free

@@ -69,6 +69,12 @@ permalink: /wavnav/
       <h3 class="text-xl font-semibold mb-3 text-white/95">Filter by Key & BPM</h3>
       <p class="text-white/60 leading-relaxed">Narrow down results by musical key or tempo.</p>
     </div>
+    
+    <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
+      <div class="text-4xl mb-4"></div>
+      <h3 class="text-xl font-semibold mb-3 text-white/95">100% Local</h3>
+      <p class="text-white/60 leading-relaxed">All ML models and audio processing run entirely on your computer. Your samples are never uploaded to the cloud.</p>
+    </div>
   </div>
 </div>
 
@@ -111,6 +117,11 @@ permalink: /wavnav/
       <span class="block text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
       <span class="text-white/60 text-sm">Using joint music-text embeddings</span>
     </div>
+    
+    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Fully local</span>
+      <span class="text-white/60 text-sm">All processing happens on your device</span>
+    </div>
   </div>
 </div>
 
@@ -135,7 +146,8 @@ permalink: /wavnav/
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-16">
   <div class="text-center p-12 lg:p-16 rounded-3xl border border-wavnav-mint/20" style="background: linear-gradient(135deg, rgba(34, 194, 143, 0.1) 0%, rgba(28, 140, 96, 0.05) 100%);" style="backdrop-filter: blur(3px)">
     <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Find your hidden gems</h2>
-    <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Rediscover the joy of digging.</p>
+    <br>
+    <!-- <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Rediscover the joy of digging.</p> -->
     <div class="flex flex-wrap gap-4 justify-center">
       <button onclick="openDownloadModal()" class="inline-flex items-center px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15 cursor-pointer">
         Try for free

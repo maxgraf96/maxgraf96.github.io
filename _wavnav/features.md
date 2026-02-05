@@ -81,7 +81,8 @@ permalink: /wavnav/features/
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Semantic Search</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Describe what you want ("bright pluck", "dark pad") to find similar sounds. 
-          Uses semantic matching to understand audio content, not just filenames.
+          Uses semantic matching to understand audio content, not just filenames. 
+          All machine learning models run locally on your machine. Your sounds never leave your computer.
         </p>
         <ul class="space-y-3">
           <li class="flex items-start text-white/60">
@@ -178,7 +179,7 @@ permalink: /wavnav/features/
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Handles Big Libraries</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Built for producers with large sample collections. Processes 50,000+ samples in about a minute 
-          on modern hardware, then starts instantly from cache.
+          on modern hardware, then starts instantly from cache. Everything happens locally — no waiting for uploads or cloud processing.
         </p>
         <ul class="space-y-3">
           <li class="flex items-start text-white/60">
@@ -244,6 +245,11 @@ permalink: /wavnav/features/
       <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Auto-Save</h4>
         <p class="text-white/60 text-sm leading-relaxed">Your folders and settings are remembered.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
+        <h4 class="text-white/95 font-semibold mb-3"> Privacy First</h4>
+        <p class="text-white/60 text-sm leading-relaxed">100% local processing. No cloud uploads, no data collection, no internet required after download. Your samples stay on your machine.</p>
       </div>
       
     </div>
