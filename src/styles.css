@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Source files for Tailwind v4 to scan */
+@source "../_includes/**/*.html";
+@source "../_layouts/**/*.html";
+@source "../_wavnav/**/*.md";
+@source "../_pages/**/*.md";
+@source "../*.md";
+@source "../*.html";
+
 @font-face {
   font-family: "Atkinson Hyperlegible";
   src: url("../fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf")

@@ -126,7 +126,7 @@ permalink: /wavnav/
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows</span>
-      <span class="text-white/60 text-sm">Supported (currently no GPU accelerated machine learning models, slower performance)</span>
+      <span class="text-white/60 text-sm">Supported (currently no GPU accelerated machine learning models, slower performance). GPU acceleration coming soon.</span>
     </div>
   </div>
 </div>
