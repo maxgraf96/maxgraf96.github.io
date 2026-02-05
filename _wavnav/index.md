@@ -31,10 +31,9 @@ permalink: /wavnav/
       <a href="/wavnav/features" class="inline-flex items-center px-8 py-4 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
         See Features
       </a>
-      <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" class="inline-flex flex-col items-center justify-center px-8 py-3 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
-        <span>Try for free</span>
-        <span class="text-white/50 font-normal" style="font-size: 10px;">(macOS only)</span>
-      </a>
+      <button onclick="openDownloadModal()" class="inline-flex items-center px-8 py-4 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15 cursor-pointer">
+        Try for free
+      </button>
       <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-8 py-4 rounded-full text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-white shadow-wavnav-mint/40" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
         Buy WavNav
       </a>
@@ -61,7 +60,7 @@ permalink: /wavnav/
     
     <div class="group bg-white/[0.03] border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30 hover:-translate-y-1" style="backdrop-filter: blur(3px)">
       <div class="text-4xl mb-4"></div>
-      <h3 class="text-xl font-semibold mb-3 text-white/95">Fast Loading</h3>
+      <h3 class="text-xl font-semibold mb-3 text-white/95">Fast Loading (macOS only)</h3>
       <p class="text-white/60 leading-relaxed">Handles large libraries (50k+ samples) without slowing down. First load takes about a minute, then starts instantly.</p>
     </div>
     
@@ -126,8 +125,8 @@ permalink: /wavnav/
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint/60 mb-2">Windows</span>
-      <span class="text-white/60 text-sm">Coming soon</span>
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows</span>
+      <span class="text-white/60 text-sm">Supported (currently no GPU accelerated machine learning models, slower performance)</span>
     </div>
   </div>
 </div>
@@ -138,10 +137,9 @@ permalink: /wavnav/
     <h2 class="text-3xl lg:text-4xl font-semibold mb-4 text-white/95">Find your hidden gems</h2>
     <p class="text-white/60 mb-8 text-lg max-w-xl mx-auto">Rediscover the joy of digging.</p>
     <div class="flex flex-wrap gap-4 justify-center">
-      <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" class="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15">
-        <span>Try for free</span>
-        <span class="text-white/50 font-normal" style="font-size: 10px;">(macOS only)</span>
-      </a>
+      <button onclick="openDownloadModal()" class="inline-flex items-center px-10 py-5 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-lg bg-white/10 text-white/90 border border-white/20 hover:bg-white/15 cursor-pointer">
+        Try for free
+      </button>
       <a href="https://maxgraf6.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
         Buy WavNav
       </a>
@@ -219,3 +217,5 @@ permalink: /wavnav/
     }
   })();
 </script>
+
+{% include download-modal.html %}
