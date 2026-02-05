@@ -79,7 +79,7 @@ permalink: /wavnav/
 </div>
 
 <!-- Screenshot Showcase -->
-<div class="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-24">
+<div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
   <div class="bg-black/30 rounded-3xl border border-white/5 p-8 lg:p-12 text-center" style="backdrop-filter: blur(3px)">
     <h2 class="text-3xl lg:text-4xl font-semibold mb-10 text-white/95">Screenshots!</h2>
     
@@ -126,18 +126,30 @@ permalink: /wavnav/
 </div>
 
 <!-- Requirements -->
-<div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
+<div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Platforms</h2>
   
-  <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+  <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
       <span class="text-white/60 text-sm">Supported (Intel & Apple Silicon)</span>
+    <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
+            Requires macOS 13.0 or higher
+          </p>
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
       <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows</span>
-      <span class="text-white/60 text-sm">Supported (currently no GPU accelerated machine learning models, slower performance). GPU acceleration coming soon.</span>
+      <span class="text-white/60 text-sm">Supported (x86 only)</span>
+      <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
+            Requires Windows 10 1803 or higher
+          </p>
+          <br>
+        <div class="text-white/60 text-sm flex gap-4 items-start flex-row">
+            <img src="/assets/images/warning.svg" alt="Warning" style="flex-shrink: 0; margin-top: 2px; width: 28px; height: 32px;">
+
+            <span style="text-align: left;">Currently GPU-accelerated machine learning models are not supported on Windows, expect slower performance. GPU acceleration coming soon.</span>
+        </div>
     </div>
   </div>
 </div>
