@@ -99,7 +99,7 @@
             right: 0;
             bottom: 0;
             /* Max/MSP style dot grid - dots at line intersections */
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 2px);
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1.5px);
             background-size: 80px 80px;
             background-position: 0 0;
             opacity: 0.9;
@@ -300,7 +300,8 @@
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Semantic Search</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Describe what you want ("bright pluck", "dark pad") to find similar sounds. 
-          Uses semantic matching to understand audio content, not just filenames.
+          Uses semantic matching to understand audio content, not just filenames. 
+          All machine learning models run locally on your machine. Your sounds never leave your computer.
         </p>
         <ul class="space-y-3">
           <li class="flex items-start text-white/60">
@@ -397,7 +398,7 @@
         <h2 class="text-3xl lg:text-4xl font-semibold mb-5 text-white/95"> Handles Big Libraries</h2>
         <p class="text-white/70 text-base lg:text-lg leading-relaxed mb-6">
           Built for producers with large sample collections. Processes 50,000+ samples in about a minute 
-          on modern hardware, then starts instantly from cache.
+          on modern hardware, then starts instantly from cache. Everything happens locally — no waiting for uploads or cloud processing.
         </p>
         <ul class="space-y-3">
           <li class="flex items-start text-white/60">
@@ -463,6 +464,11 @@
       <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
         <h4 class="text-white/95 font-semibold mb-3"> Auto-Save</h4>
         <p class="text-white/60 text-sm leading-relaxed">Your folders and settings are remembered.</p>
+      </div>
+      
+      <div class="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-7 transition-all duration-300 hover:bg-white/5 hover:border-wavnav-mint/30" style="backdrop-filter: blur(3px)">
+        <h4 class="text-white/95 font-semibold mb-3"> Privacy First</h4>
+        <p class="text-white/60 text-sm leading-relaxed">100% local processing. No cloud uploads, no data collection, no internet required after download. Your samples stay on your machine.</p>
       </div>
       
     </div>
@@ -537,8 +543,11 @@
         
         <!-- Notes -->
         <div style="flex: 1; margin-bottom: 24px;">
-          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0;">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 4px 0;">
             Apple Silicon and Intel supported
+          </p>
+          <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
+            Requires macOS 13.0 or higher
           </p>
         </div>
         
@@ -563,10 +572,13 @@
         
         <!-- Notes -->
         <div style="flex: 1; margin-bottom: 24px;">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 8px 0;">
+            x86 only (no ARM support)
+          </p>
           <div style="display: flex; align-items: flex-start; gap: 8px;">
             <img src="/assets/images/warning.svg" alt="Warning" style="flex-shrink: 0; margin-top: 2px; width: 28px; height: 32px;" />
             <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0;">
-              Machine learning models on Windows currently run without GPU acceleration, expect slower performance.
+              Machine learning models on Windows currently run without GPU acceleration, expect slower processing. GPU acceleration coming soon.
             </p>
           </div>
         </div>
