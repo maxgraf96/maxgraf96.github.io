@@ -17,7 +17,13 @@ permalink: /wavnav/
   <div class="hero-stars absolute inset-0 pointer-events-none z-[5]" id="heroStars"></div>
   
   <div class="relative z-10 max-w-3xl mx-auto text-center animate-slide-up">
-    <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" data-no-zoom class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5);">
+    <img src="/assets/images/wavnav-icon-full-no-bg.png" alt="WavNav Icon" data-no-zoom class="rounded-2xl mx-auto mb-6 " style="width: 400px; border: 1px solid rgba(100, 100, 100, 0.5); user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+">
     
     <h1 class="text-5xl lg:text-6xl font-bold mb-3 tracking-tight text-white animate-slide-up font-nebulous">WavNav</h1>
     
