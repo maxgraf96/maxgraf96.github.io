@@ -154,7 +154,7 @@ permalink: /wavnav/
         <div class="text-white/60 text-sm flex gap-4 items-start flex-row">
             <img src="/assets/images/warning.svg" alt="Warning" style="flex-shrink: 0; margin-top: 2px; width: 28px; height: 32px;">
 
-            <span style="text-align: left;">Currently, GPU-acceleration for machine learning models is not supported on Windows - expect slower performance. GPU acceleration coming soon.</span>
+            <span style="text-align: left;">Currently, GPU-acceleration for machine learning models is not supported on Windows - expect slower analysis performance. GPU acceleration coming soon.</span>
         </div>
     </div>
   </div>
