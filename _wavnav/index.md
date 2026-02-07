@@ -47,6 +47,13 @@ permalink: /wavnav/
   </div>
 </div>
 
+<!-- UMAP Visualization Banner -->
+<div class="mb-12">
+  <div class="overflow-hidden" style="clip-path: inset(0 2px 0 0);">
+    <img src="/assets/images/wavnav_umap_pingpong.gif" alt="Audio samples arranged on a 2D map in WavNav" class="w-full" data-no-zoom>
+  </div>
+</div>
+
 <!-- Features Section -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Feature Summary</h2>
