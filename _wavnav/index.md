@@ -49,8 +49,13 @@ permalink: /wavnav/
 
 <!-- UMAP Visualization Banner -->
 <div class="mb-12">
-  <div class="overflow-hidden" style="clip-path: inset(0 2px 0 0);">
-    <img src="/assets/images/wavnav_umap_pingpong.gif" alt="Audio samples arranged on a 2D map in WavNav" class="w-full" data-no-zoom>
+  <div class="relative overflow-hidden" style="clip-path: inset(0 2px 0 0);">
+    <img src="/assets/images/wavnav_umap_pingpong.gif" alt="Audio samples arranged on a 2D map in WavNav" class="w-full fadeTB" style="user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;" data-no-zoom>
   </div>
 </div>
 
