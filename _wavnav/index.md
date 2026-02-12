@@ -49,15 +49,109 @@ permalink: /wavnav/
 
 <!-- UMAP Visualization Banner -->
 <div class="mb-12">
-  <div class="relative overflow-hidden" style="clip-path: inset(0 2px 0 0);">
-    <img src="/assets/images/wavnav_umap_pingpong.gif" alt="Audio samples arranged on a 2D map in WavNav" class="w-full fadeTB" style="user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;" data-no-zoom>
+  <div class="relative overflow-hidden scroll-video-container" style="clip-path: inset(0 2px 0 0);">
+    <video 
+      class="w-full fadeTB scroll-controlled-video"
+      muted 
+      playsinline
+      preload="auto"
+      style="user-drag: none; -webkit-user-drag: none; user-select: none;">
+      <source src="/assets/images/wavnav_umap.mp4" type="video/mp4">
+    </video>
   </div>
 </div>
+
+<style>
+  .scroll-video-container {
+    position: relative;
+  }
+  
+  .scroll-controlled-video {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+(function() {
+  const video = document.querySelector('.scroll-controlled-video');
+  const container = document.querySelector('.scroll-video-container');
+  
+  if (!video || !container) return;
+  
+  // Only enable scroll control if video loaded
+  video.addEventListener('loadedmetadata', function() {
+    const duration = video.duration;
+    
+    // Use Intersection Observer + scroll for smooth performance
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          enableScrollControl(video, container, duration);
+        } else {
+          disableScrollControl();
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(container);
+  });
+  
+  let rafId = null;
+  let isActive = false;
+  
+  function enableScrollControl(video, container, duration) {
+    if (isActive) return;
+    isActive = true;
+    
+    function updateFrame() {
+      if (!isActive) return;
+      
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate progress: start before video enters viewport, end when fully scrolled past
+      // 0 = bottom of video is 300px below viewport (start expanding early)
+      // 1 = bottom of video at top of viewport (fully scrolled past)
+      const elementBottom = rect.bottom;
+      
+      // Start: 300px before bottom of video reaches bottom of screen
+      // End: when bottom of video is at top of screen
+      const startOffset = 300; // pixels before entering viewport to start
+      const start = windowHeight + startOffset;
+      const end = 0;
+      let progress = (start - elementBottom) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Map progress to video time: 0 to full duration
+      const time = progress * duration;
+      
+      if (video.readyState >= 2) {
+        video.currentTime = time;
+      }
+      
+      rafId = requestAnimationFrame(updateFrame);
+    }
+    
+    updateFrame();
+  }
+  
+  function disableScrollControl() {
+    isActive = false;
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+  
+  // Cleanup on page hide
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      disableScrollControl();
+    }
+  });
+})();
+</script>
 
 <!-- Features Section -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
@@ -163,10 +257,10 @@ permalink: /wavnav/
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows</span>
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
       <span class="text-white/60 text-sm">Supported (x86 only)</span>
       <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
-            Requires Windows 10 1803 or higher
+            Requires Windows 10 version 1803 or higher
           </p>
           <br>
         <div class="text-white/60 text-sm flex gap-4 items-start flex-row">
