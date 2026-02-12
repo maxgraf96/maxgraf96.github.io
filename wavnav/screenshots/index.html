@@ -262,6 +262,9 @@
     <!-- Main Content -->
     <main class="min-h-screen pt-16 relative z-10">
         
+	            
+	            
+	                
 
 <!-- Hero -->
 <div class="text-center px-4 pt-14 pb-10 mb-6 animate-slide-up">
@@ -360,15 +363,21 @@
   // Download Modal
   function openDownloadModal() {
     const modal = document.getElementById('downloadModal');
+    if (!modal) return;
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 
   function closeDownloadModal() {
     const modal = document.getElementById('downloadModal');
+    if (!modal) return;
     modal.style.display = 'none';
     document.body.style.overflow = '';
   }
+
+  // Keep inline onclick handlers working across browsers.
+  window.openDownloadModal = openDownloadModal;
+  window.closeDownloadModal = closeDownloadModal;
 
   // Close modal on backdrop click
   document.addEventListener('click', function(e) {
@@ -386,6 +395,45 @@
   });
 </script>
 
+
+	            
+	            
+	                <style>
+  .download-modal-columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-modal-panel {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-modal-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  @media (min-width: 768px) {
+    .download-modal-columns {
+      flex-direction: row;
+    }
+
+    .download-modal-panel {
+      padding: 32px;
+    }
+
+    .download-modal-divider {
+      width: 1px;
+      height: auto;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+    }
+  }
+</style>
+
 <!-- Download Modal -->
 <div id="downloadModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);">
   <div style="position: relative; background-color: #1a1a2e; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; max-width: 672px; width: 100%; overflow: hidden; backdrop-filter: blur(16px);">
@@ -396,9 +444,9 @@
       </svg>
     </button>
 
-    <div style="display: flex; flex-direction: row;">
+    <div class="download-modal-columns">
       <!-- macOS Side -->
-      <div style="flex: 1; padding: 32px; display: flex; flex-direction: column;">
+      <div class="download-modal-panel">
         <!-- Header -->
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
@@ -424,10 +472,10 @@
       </div>
 
       <!-- Vertical Divider -->
-      <div style="width: 1px; background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);"></div>
+      <div class="download-modal-divider"></div>
 
       <!-- Windows Side -->
-      <div style="flex: 1; padding: 32px; display: flex; flex-direction: column;">
+      <div class="download-modal-panel">
         <!-- Header -->
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
@@ -464,6 +512,8 @@
   </div>
 </div>
 
+	            
+	        
     </main>
 
     <!-- Footer -->

@@ -317,7 +317,8 @@
 
     <!-- Main Content -->
     <main class="min-h-screen pt-16 relative z-10">
-        <!-- Hero Section -->
+        
+	            <!-- Hero Section -->
 <div class="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-20 lg:py-20 -mt-4 mb-16">
   <!-- Animated gradient orbs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -379,6 +380,8 @@
 </div>
 
 
+	            
+	                
 
 <script>
 (function() {
@@ -394,18 +397,30 @@
   let metadataLoaded = false;
   let rafId = null;
   let isActive = false;
-  
-  // Load metadata for scroll video - this must happen before scroll control works
-  scrollVideo.addEventListener('loadedmetadata', function() {
+  let pendingStart = false;
+
+  function markMetadataReady() {
+    if (metadataLoaded) return;
+    if (!Number.isFinite(scrollVideo.duration) || scrollVideo.duration <= 0) return;
+
     duration = scrollVideo.duration;
     metadataLoaded = true;
-    
+
     // If we already wanted to start (desktop observer triggered), start now
     if (pendingStart) {
       enableScrollControl();
       pendingStart = false;
     }
-  });
+  }
+  
+  // Load metadata for scroll video - this must happen before scroll control works
+  scrollVideo.addEventListener('loadedmetadata', markMetadataReady);
+  scrollVideo.addEventListener('durationchange', markMetadataReady);
+  
+  // On refresh, metadata may already be available before listeners run.
+  if (scrollVideo.readyState >= 1) {
+    markMetadataReady();
+  }
   
   // Force load on mobile when needed
   function ensureScrollVideoLoaded() {
@@ -416,7 +431,6 @@
   
   // Check if touch device
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  let pendingStart = false;
   
   // Desktop: enable scroll control when visible
   if (!isTouchDevice) {
@@ -575,29 +589,29 @@
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Specs</h2>
   
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">50k+</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">50k+</span>
       <span class="text-white/60 text-sm">Samples Supported</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
       <span class="text-white/60 text-sm">First Load (50k samples)</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-3xl lg:text-3xl font-bold text-wavnav-mint mb-2">High performance rendering</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-2xl sm:text-3xl lg:text-3xl font-bold text-wavnav-mint mb-2">High performance rendering</span>
       <span class="text-white/60 text-sm">GPU-accelerated via OpenGL/Metal</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
       <span class="text-white/60 text-sm">Using joint music-text embeddings</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Fully local</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Fully local</span>
       <span class="text-white/60 text-sm">All processing happens on your device</span>
     </div>
   </div>
@@ -607,17 +621,17 @@
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Platforms</h2>
   
-  <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
       <span class="text-white/60 text-sm">Supported (Intel &amp; Apple Silicon)</span>
     <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
             Requires macOS 13.0 or higher
           </p>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
       <span class="text-white/60 text-sm">Supported (x86 only)</span>
       <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
             Requires Windows 10 version 1803 or higher
@@ -650,6 +664,234 @@
 </div>
 
 
+	            
+	            
+	                <style>
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Hero stars */
+  .hero-stars {
+    background-image:
+      /* radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px), */
+      radial-gradient(circle, rgba(34, 194, 143, 0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
+      radial-gradient(circle, rgba(168, 85, 247, 0.5) 1px, transparent 1px);
+    background-size:
+      /* 120px 120px, */
+      180px 180px,
+      220px 220px,
+      280px 280px;
+    background-position:
+      /* 0 0, */
+      40px 60px,
+      120px 30px,
+      80px 120px;
+    opacity: 0.7;
+  }
+</style>
+
+<script>
+  // Generate hero stars
+  (function() {
+    const heroStars = document.getElementById('heroStars');
+    if (!heroStars) return;
+
+    const colors = ['#ffffff', '#22c28f', '#3b82f6', '#a855f7'];
+    const starCount = 30;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.style.cssText = `
+        position: absolute;
+        width: ${1.5 + Math.random() * 1.5}px;
+        height: ${1.5 + Math.random() * 1.5}px;
+        background: ${color};
+        border-radius: 50%;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        opacity: ${0.4 + Math.random() * 0.4};
+        box-shadow: 0 0 ${3 + Math.random() * 3}px ${color};
+        animation: twinkle ${3 + Math.random() * 3}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 5}s;
+      `;
+      heroStars.appendChild(star);
+    }
+  })();
+</script>
+
+<script>
+  // Download Modal
+  function openDownloadModal() {
+    const modal = document.getElementById('downloadModal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDownloadModal() {
+    const modal = document.getElementById('downloadModal');
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // Keep inline onclick handlers working across browsers.
+  window.openDownloadModal = openDownloadModal;
+  window.closeDownloadModal = closeDownloadModal;
+
+  // Close modal on backdrop click
+  document.addEventListener('click', function(e) {
+    const modal = document.getElementById('downloadModal');
+    if (e.target === modal) {
+      closeDownloadModal();
+    }
+  });
+
+  // Close modal on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeDownloadModal();
+    }
+  });
+</script>
+
+
+	            
+	                <style>
+  .download-modal-columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-modal-panel {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-modal-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  @media (min-width: 768px) {
+    .download-modal-columns {
+      flex-direction: row;
+    }
+
+    .download-modal-panel {
+      padding: 32px;
+    }
+
+    .download-modal-divider {
+      width: 1px;
+      height: auto;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+    }
+  }
+</style>
+
+<!-- Download Modal -->
+<div id="downloadModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);">
+  <div style="position: relative; background-color: #1a1a2e; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; max-width: 672px; width: 100%; overflow: hidden; backdrop-filter: blur(16px);">
+    <!-- Close button -->
+    <button onclick="closeDownloadModal()" style="position: absolute; top: 16px; right: 16px; color: rgba(255, 255, 255, 0.5); background: none; border: none; cursor: pointer; z-index: 10;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="download-modal-columns">
+      <!-- macOS Side -->
+      <div class="download-modal-panel">
+        <!-- Header -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+          </svg>
+          <span style="font-size: 20px; font-weight: 600; color: rgba(255, 255, 255, 0.95);">macOS</span>
+        </div>
+        
+        <!-- Notes -->
+        <div style="flex: 1; margin-bottom: 24px;">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 4px 0;">
+            Apple Silicon and Intel supported
+          </p>
+          <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
+            Requires macOS 13.0 or higher
+          </p>
+        </div>
+        
+        <!-- Download Button -->
+        <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; color: white; text-decoration: none; background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);">
+          Download for macOS
+        </a>
+      </div>
+
+      <!-- Vertical Divider -->
+      <div class="download-modal-divider"></div>
+
+      <!-- Windows Side -->
+      <div class="download-modal-panel">
+        <!-- Header -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
+            <path d="M3 12V6.75l6-1.32v6.48L3 12m17-9v8.75l-10 .15V5.21L20 3M3 13l6 .09v6.81l-6-1.15V13m17 .25V22l-10-1.91V13.1l10 .15z" />
+          </svg>
+          <span style="font-size: 20px; font-weight: 600; color: rgba(255, 255, 255, 0.95);">Windows</span>
+        </div>
+        
+        <!-- Notes -->
+        <div style="flex: 1; margin-bottom: 24px;">
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 8px 0;">
+                Beta version, expect bugs.</p>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 8px 0;">
+            x86 only (no ARM support)
+          </p>
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
+            Requires Windows 10 version 1803 or higher
+        </p>
+        <br />
+          <div style="display: flex; align-items: flex-start; gap: 8px;">
+            <img src="/assets/images/warning.svg" alt="Warning" style="flex-shrink: 0; margin-top: 2px; width: 28px; height: 32px;" />
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0;">
+              Machine learning models on Windows currently run without GPU acceleration, expect slower processing. GPU acceleration coming soon.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Download Button -->
+        <a href="https://hetzner.maxgraf.space/wavnav-download/windows/latest" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; color: white; text-decoration: none; background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);">
+          Download for Windows
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	            
+	        
     </main>
 
     <!-- Footer -->
