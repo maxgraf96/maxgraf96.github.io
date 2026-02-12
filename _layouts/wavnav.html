@@ -200,11 +200,15 @@
 	    {% if content_parts.size > 1 %}
 	        {% assign style_and_rest = content_parts[1] | split: '</style>' %}
 	        {% assign inline_style = style_and_rest[0] %}
-	        {% if style_and_rest.size > 1 %}
-	            {% assign content_without_inline_style = content_parts[0] | append: style_and_rest[1] %}
-	        {% else %}
-	            {% assign content_without_inline_style = content_parts[0] %}
-	        {% endif %}
+	        {% capture content_without_inline_style %}
+	            {{ content_parts[0] }}
+	            {% if style_and_rest.size > 1 %}
+	                {{ style_and_rest[1] }}
+	            {% endif %}
+	            {% for part in content_parts offset:2 %}
+	                <style>{{ part }}
+	            {% endfor %}
+	        {% endcapture %}
 	    {% endif %}
 
 	    {% assign inline_style_stripped = inline_style | strip %}

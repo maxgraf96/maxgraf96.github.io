@@ -161,18 +161,30 @@ permalink: /wavnav/
   let metadataLoaded = false;
   let rafId = null;
   let isActive = false;
-  
-  // Load metadata for scroll video - this must happen before scroll control works
-  scrollVideo.addEventListener('loadedmetadata', function() {
+  let pendingStart = false;
+
+  function markMetadataReady() {
+    if (metadataLoaded) return;
+    if (!Number.isFinite(scrollVideo.duration) || scrollVideo.duration <= 0) return;
+
     duration = scrollVideo.duration;
     metadataLoaded = true;
-    
+
     // If we already wanted to start (desktop observer triggered), start now
     if (pendingStart) {
       enableScrollControl();
       pendingStart = false;
     }
-  });
+  }
+  
+  // Load metadata for scroll video - this must happen before scroll control works
+  scrollVideo.addEventListener('loadedmetadata', markMetadataReady);
+  scrollVideo.addEventListener('durationchange', markMetadataReady);
+  
+  // On refresh, metadata may already be available before listeners run.
+  if (scrollVideo.readyState >= 1) {
+    markMetadataReady();
+  }
   
   // Force load on mobile when needed
   function ensureScrollVideoLoaded() {
@@ -183,7 +195,6 @@ permalink: /wavnav/
   
   // Check if touch device
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  let pendingStart = false;
   
   // Desktop: enable scroll control when visible
   if (!isTouchDevice) {
@@ -342,29 +353,29 @@ permalink: /wavnav/
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Specs</h2>
   
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">50k+</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">50k+</span>
       <span class="text-white/60 text-sm">Samples Supported</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">~1 min</span>
       <span class="text-white/60 text-sm">First Load (50k samples)</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-3xl lg:text-3xl font-bold text-wavnav-mint mb-2">High performance rendering</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-2xl sm:text-3xl lg:text-3xl font-bold text-wavnav-mint mb-2">High performance rendering</span>
       <span class="text-white/60 text-sm">GPU-accelerated via OpenGL/Metal</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-4xl font-bold text-wavnav-mint mb-2">Semantic Search</span>
       <span class="text-white/60 text-sm">Using joint music-text embeddings</span>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Fully local</span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Fully local</span>
       <span class="text-white/60 text-sm">All processing happens on your device</span>
     </div>
   </div>
@@ -374,17 +385,17 @@ permalink: /wavnav/
 <div class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mb-24">
   <h2 class="text-3xl lg:text-4xl font-semibold text-center mb-12 text-white/95">Platforms</h2>
   
-  <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">macOS</span>
       <span class="text-white/60 text-sm">Supported (Intel & Apple Silicon)</span>
     <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
             Requires macOS 13.0 or higher
           </p>
     </div>
     
-    <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
+    <div class="text-center p-6 sm:p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
+      <span class="block text-3xl sm:text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
       <span class="text-white/60 text-sm">Supported (x86 only)</span>
       <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
             Requires Windows 10 version 1803 or higher
