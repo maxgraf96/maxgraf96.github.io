@@ -203,43 +203,13 @@
 	    
 	        <style>
 	            
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  .scroll-video-container {
+    position: relative;
   }
   
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-    opacity: 0;
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.8; }
-  }
-
-  /* Hero stars */
-  .hero-stars {
-    background-image:
-      /* radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px), */
-      radial-gradient(circle, rgba(34, 194, 143, 0.6) 1px, transparent 1px),
-      radial-gradient(circle, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
-      radial-gradient(circle, rgba(168, 85, 247, 0.5) 1px, transparent 1px);
-    background-size:
-      /* 120px 120px, */
-      180px 180px,
-      220px 220px,
-      280px 280px;
-    background-position:
-      /* 0 0, */
-      40px 60px,
-      120px 30px,
-      80px 120px;
-    opacity: 0.7;
+  .scroll-controlled-video {
+    width: 100%;
+    height: auto;
   }
 
 	        </style>
@@ -335,15 +305,95 @@
 
 <!-- UMAP Visualization Banner -->
 <div class="mb-12">
-  <div class="relative overflow-hidden" style="clip-path: inset(0 2px 0 0);">
-    <img src="/assets/images/wavnav_umap_pingpong.gif" alt="Audio samples arranged on a 2D map in WavNav" class="w-full fadeTB" style="user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;" data-no-zoom="" />
+  <div class="relative overflow-hidden scroll-video-container" style="clip-path: inset(0 2px 0 0);">
+    <video class="w-full fadeTB scroll-controlled-video" muted="" playsinline="" preload="auto" style="user-drag: none; -webkit-user-drag: none; user-select: none;">
+      <source src="/assets/images/wavnav_umap.mp4" type="video/mp4" />
+    </video>
   </div>
 </div>
+
+
+
+<script>
+(function() {
+  const video = document.querySelector('.scroll-controlled-video');
+  const container = document.querySelector('.scroll-video-container');
+  
+  if (!video || !container) return;
+  
+  // Only enable scroll control if video loaded
+  video.addEventListener('loadedmetadata', function() {
+    const duration = video.duration;
+    
+    // Use Intersection Observer + scroll for smooth performance
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          enableScrollControl(video, container, duration);
+        } else {
+          disableScrollControl();
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(container);
+  });
+  
+  let rafId = null;
+  let isActive = false;
+  
+  function enableScrollControl(video, container, duration) {
+    if (isActive) return;
+    isActive = true;
+    
+    function updateFrame() {
+      if (!isActive) return;
+      
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate progress: start before video enters viewport, end when fully scrolled past
+      // 0 = bottom of video is 300px below viewport (start expanding early)
+      // 1 = bottom of video at top of viewport (fully scrolled past)
+      const elementBottom = rect.bottom;
+      
+      // Start: 300px before bottom of video reaches bottom of screen
+      // End: when bottom of video is at top of screen
+      const startOffset = 300; // pixels before entering viewport to start
+      const start = windowHeight + startOffset;
+      const end = 0;
+      let progress = (start - elementBottom) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Map progress to video time: 0 to full duration
+      const time = progress * duration;
+      
+      if (video.readyState >= 2) {
+        video.currentTime = time;
+      }
+      
+      rafId = requestAnimationFrame(updateFrame);
+    }
+    
+    updateFrame();
+  }
+  
+  function disableScrollControl() {
+    isActive = false;
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+  
+  // Cleanup on page hide
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      disableScrollControl();
+    }
+  });
+})();
+</script>
 
 <!-- Features Section -->
 <div class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mb-24">
@@ -449,10 +499,10 @@
     </div>
     
     <div class="text-center p-8 bg-white/[0.02] rounded-2xl border border-white/5 transition-all duration-300 hover:border-wavnav-mint/20" style="backdrop-filter: blur(3px)">
-      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows</span>
+      <span class="block text-4xl lg:text-5xl font-bold text-wavnav-mint mb-2">Windows <span style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 0.35em; padding: 4px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">Beta</span></span>
       <span class="text-white/60 text-sm">Supported (x86 only)</span>
       <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
-            Requires Windows 10 1803 or higher
+            Requires Windows 10 version 1803 or higher
           </p>
           <br />
         <div class="text-white/60 text-sm flex gap-4 items-start flex-row">
@@ -477,140 +527,6 @@
       <a href="https://maxgraf96.gumroad.com/l/wavnav" class="inline-flex items-center px-10 py-5 rounded-full text-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl text-white" style="background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);" target="_blank">
         Buy WavNav
       </a>
-    </div>
-  </div>
-</div>
-
-
-
-<script>
-  // Generate hero stars
-  (function() {
-    const heroStars = document.getElementById('heroStars');
-    if (!heroStars) return;
-
-    const colors = ['#ffffff', '#22c28f', '#3b82f6', '#a855f7'];
-    const starCount = 30;
-
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement('div');
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      star.style.cssText = `
-        position: absolute;
-        width: ${1.5 + Math.random() * 1.5}px;
-        height: ${1.5 + Math.random() * 1.5}px;
-        background: ${color};
-        border-radius: 50%;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        opacity: ${0.4 + Math.random() * 0.4};
-        box-shadow: 0 0 ${3 + Math.random() * 3}px ${color};
-        animation: twinkle ${3 + Math.random() * 3}s ease-in-out infinite;
-        animation-delay: ${Math.random() * 5}s;
-      `;
-      heroStars.appendChild(star);
-    }
-  })();
-</script>
-
-<script>
-  // Download Modal
-  function openDownloadModal() {
-    const modal = document.getElementById('downloadModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDownloadModal() {
-    const modal = document.getElementById('downloadModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  // Close modal on backdrop click
-  document.addEventListener('click', function(e) {
-    const modal = document.getElementById('downloadModal');
-    if (e.target === modal) {
-      closeDownloadModal();
-    }
-  });
-
-  // Close modal on ESC key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeDownloadModal();
-    }
-  });
-</script>
-
-<!-- Download Modal -->
-<div id="downloadModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 50; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);">
-  <div style="position: relative; background-color: #1a1a2e; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; max-width: 672px; width: 100%; overflow: hidden; backdrop-filter: blur(16px);">
-    <!-- Close button -->
-    <button onclick="closeDownloadModal()" style="position: absolute; top: 16px; right: 16px; color: rgba(255, 255, 255, 0.5); background: none; border: none; cursor: pointer; z-index: 10;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-
-    <div style="display: flex; flex-direction: row;">
-      <!-- macOS Side -->
-      <div style="flex: 1; padding: 32px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-          </svg>
-          <span style="font-size: 20px; font-weight: 600; color: rgba(255, 255, 255, 0.95);">macOS</span>
-        </div>
-        
-        <!-- Notes -->
-        <div style="flex: 1; margin-bottom: 24px;">
-          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 4px 0;">
-            Apple Silicon and Intel supported
-          </p>
-          <p style="color: rgba(255, 255, 255, 0.5); font-size: 12px; line-height: 1.5; margin: 0;">
-            Requires macOS 13.0 or higher
-          </p>
-        </div>
-        
-        <!-- Download Button -->
-        <a href="https://hetzner.maxgraf.space/wavnav-download/macos/latest" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; color: white; text-decoration: none; background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);">
-          Download for macOS
-        </a>
-      </div>
-
-      <!-- Vertical Divider -->
-      <div style="width: 1px; background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);"></div>
-
-      <!-- Windows Side -->
-      <div style="flex: 1; padding: 32px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color: rgba(255, 255, 255, 0.9);">
-            <path d="M3 12V6.75l6-1.32v6.48L3 12m17-9v8.75l-10 .15V5.21L20 3M3 13l6 .09v6.81l-6-1.15V13m17 .25V22l-10-1.91V13.1l10 .15z" />
-          </svg>
-          <span style="font-size: 20px; font-weight: 600; color: rgba(255, 255, 255, 0.95);">Windows</span>
-        </div>
-        
-        <!-- Notes -->
-        <div style="flex: 1; margin-bottom: 24px;">
-          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0 0 8px 0;">
-            x86 only (no ARM support)
-          </p>
-          <div style="display: flex; align-items: flex-start; gap: 8px;">
-            <img src="/assets/images/warning.svg" alt="Warning" style="flex-shrink: 0; margin-top: 2px; width: 28px; height: 32px;" />
-            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.625; margin: 0;">
-              Machine learning models on Windows currently run without GPU acceleration, expect slower processing. GPU acceleration coming soon.
-            </p>
-          </div>
-        </div>
-        
-        <!-- Download Button -->
-        <a href="https://hetzner.maxgraf.space/wavnav-download/windows/latest" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; color: white; text-decoration: none; background: linear-gradient(135deg, #22c28f 0%, #1c8c60 100%);">
-          Download for Windows
-        </a>
-      </div>
     </div>
   </div>
 </div>
