@@ -49,15 +49,33 @@ permalink: /wavnav/
 
 <!-- UMAP Visualization Banner -->
 <div class="mb-12">
-  <div class="relative overflow-hidden scroll-video-container" style="clip-path: inset(0 2px 0 0);">
+  <div class="relative overflow-hidden scroll-video-container" style="clip-path: inset(0 2px 0 0);" id="umapVideoContainer">
+    <!-- Scroll-controlled video (shown on desktop, or mobile after tap) -->
     <video 
       class="w-full fadeTB scroll-controlled-video"
       muted 
       playsinline
       preload="auto"
+      poster="/assets/images/wavnav_umap_poster.jpg"
       style="user-drag: none; -webkit-user-drag: none; user-select: none;">
       <source src="/assets/images/wavnav_umap.mp4" type="video/mp4">
     </video>
+    <!-- Mobile default: looping autoplay video -->
+    <video 
+      class="w-full fadeTB mobile-video"
+      muted 
+      playsinline
+      autoplay
+      loop
+      preload="auto"
+      poster="/assets/images/wavnav_umap_poster.jpg"
+      style="user-drag: none; -webkit-user-drag: none; user-select: none;">
+      <source src="/assets/images/wavnav_umap.mp4" type="video/mp4">
+    </video>
+    <!-- Tap hint for mobile -->
+    <div class="tap-hint" id="tapHint">
+      <span>Tap to explore</span>
+    </div>
   </div>
 </div>
 
@@ -66,42 +84,159 @@ permalink: /wavnav/
     position: relative;
   }
   
-  .scroll-controlled-video {
+  .scroll-controlled-video,
+  .mobile-video {
     width: 100%;
     height: auto;
+    background: #0a0a0f;
+  }
+  
+  /* Default: show scroll-controlled, hide mobile */
+  .scroll-controlled-video { display: block; }
+  .mobile-video { display: none; }
+  
+  /* Desktop with mouse: always scroll-controlled */
+  @media (hover: hover) and (pointer: fine) {
+    .scroll-controlled-video { display: block !important; }
+    .mobile-video { display: none !important; }
+    .tap-hint { display: none !important; }
+  }
+  
+  /* Touch devices: show mobile looping video + tap hint */
+  @media (hover: none) and (pointer: coarse) {
+    .scroll-controlled-video:not(.active) { display: none; }
+    .mobile-video:not(.hidden) { display: block; }
+    .tap-hint:not(.hidden) { display: flex; }
+  }
+  
+  /* Tap hint styling */
+  .tap-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .tap-hint span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  /* When scroll control is active on mobile */
+  .scroll-controlled-video.active {
+    display: block !important;
+  }
+  
+  .mobile-video.hidden {
+    display: none !important;
+  }
+  
+  .tap-hint.hidden {
+    display: none !important;
   }
 </style>
 
 <script>
 (function() {
-  const video = document.querySelector('.scroll-controlled-video');
+  const scrollVideo = document.querySelector('.scroll-controlled-video');
+  const mobileVideo = document.querySelector('.mobile-video');
   const container = document.querySelector('.scroll-video-container');
+  const tapHint = document.getElementById('tapHint');
   
-  if (!video || !container) return;
+  if (!scrollVideo || !container) return;
   
-  // Only enable scroll control if video loaded
-  video.addEventListener('loadedmetadata', function() {
-    const duration = video.duration;
-    
-    // Use Intersection Observer + scroll for smooth performance
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          enableScrollControl(video, container, duration);
-        } else {
-          disableScrollControl();
-        }
-      });
-    }, { threshold: 0 });
-    
-    observer.observe(container);
-  });
-  
+  let duration = 0;
+  let isMobileScrollMode = false;
+  let metadataLoaded = false;
   let rafId = null;
   let isActive = false;
   
-  function enableScrollControl(video, container, duration) {
-    if (isActive) return;
+  // Load metadata for scroll video - this must happen before scroll control works
+  scrollVideo.addEventListener('loadedmetadata', function() {
+    duration = scrollVideo.duration;
+    metadataLoaded = true;
+    
+    // If we already wanted to start (desktop observer triggered), start now
+    if (pendingStart) {
+      enableScrollControl();
+      pendingStart = false;
+    }
+  });
+  
+  // Force load on mobile when needed
+  function ensureScrollVideoLoaded() {
+    if (scrollVideo.readyState < 1) {
+      scrollVideo.load();
+    }
+  }
+  
+  // Check if touch device
+  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  let pendingStart = false;
+  
+  // Desktop: enable scroll control when visible
+  if (!isTouchDevice) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (metadataLoaded) {
+            enableScrollControl();
+          } else {
+            pendingStart = true;
+            ensureScrollVideoLoaded();
+          }
+        } else {
+          disableScrollControl();
+          pendingStart = false;
+        }
+      });
+    }, { threshold: 0, rootMargin: '100px' });
+    
+    observer.observe(container);
+    ensureScrollVideoLoaded();
+  }
+  
+  // Mobile: tap to enable scroll control
+  if (isTouchDevice && container && mobileVideo && tapHint) {
+    container.addEventListener('click', function() {
+      if (!isMobileScrollMode) {
+        isMobileScrollMode = true;
+        
+        // Ensure scroll video is loaded
+        ensureScrollVideoLoaded();
+        
+        // Sync and switch when ready
+        function activateScrollMode() {
+          scrollVideo.currentTime = mobileVideo.currentTime;
+          scrollVideo.classList.add('active');
+          mobileVideo.classList.add('hidden');
+          tapHint.classList.add('hidden');
+          mobileVideo.pause();
+          enableScrollControl();
+        }
+        
+        if (metadataLoaded) {
+          activateScrollMode();
+        } else {
+          scrollVideo.addEventListener('loadedmetadata', activateScrollMode, { once: true });
+        }
+      }
+    });
+  }
+  
+  function enableScrollControl() {
+    if (isActive || !metadataLoaded) return;
     isActive = true;
     
     function updateFrame() {
@@ -110,24 +245,17 @@ permalink: /wavnav/
       const rect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate progress: start before video enters viewport, end when fully scrolled past
-      // 0 = bottom of video is 300px below viewport (start expanding early)
-      // 1 = bottom of video at top of viewport (fully scrolled past)
       const elementBottom = rect.bottom;
-      
-      // Start: 300px before bottom of video reaches bottom of screen
-      // End: when bottom of video is at top of screen
-      const startOffset = 300; // pixels before entering viewport to start
+      const startOffset = 300;
       const start = windowHeight + startOffset;
       const end = 0;
       let progress = (start - elementBottom) / (start - end);
       progress = Math.max(0, Math.min(1, progress));
       
-      // Map progress to video time: 0 to full duration
       const time = progress * duration;
       
-      if (video.readyState >= 2) {
-        video.currentTime = time;
+      if (scrollVideo.readyState >= 2) {
+        scrollVideo.currentTime = time;
       }
       
       rafId = requestAnimationFrame(updateFrame);
@@ -144,7 +272,6 @@ permalink: /wavnav/
     }
   }
   
-  // Cleanup on page hide
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
       disableScrollControl();
